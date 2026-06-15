@@ -577,7 +577,24 @@
       </div>
 
       <div class="rounded-xl p-5 border border-dashed border-gray-200 flex gap-5 items-center">
-        <div class="book-spine bg-gray-200" style="min-height:60px"></div>
+        <!-- Stacked ghost books illustration -->
+        <div style="position:relative;width:72px;height:96px;flex-shrink:0;">
+          <!-- Book 3 (back) -->
+          <svg style="position:absolute;top:0;left:12px;" width="56" height="88" viewBox="0 0 56 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.75" y="0.75" width="54.5" height="86.5" rx="3.25" fill="#f0f0f0" stroke="#ddd" stroke-width="1.5"/>
+          </svg>
+          <!-- Book 2 (middle) -->
+          <svg style="position:absolute;top:4px;left:6px;" width="56" height="88" viewBox="0 0 56 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.75" y="0.75" width="54.5" height="86.5" rx="3.25" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="1.5"/>
+          </svg>
+          <!-- Book 1 (front, dashed) -->
+          <svg style="position:absolute;top:8px;left:0;" width="56" height="88" viewBox="0 0 56 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.75" y="0.75" width="54.5" height="86.5" rx="3.25" fill="white" stroke="#ccc" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <!-- Plus sign -->
+            <line x1="28" y1="30" x2="28" y2="54" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="16" y1="42" x2="40" y2="42" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
         <div>
           <p class="text-xs text-gray-400 uppercase tracking-widest mb-1">Coming next</p>
           <h3 class="font-medium text-gray-400">New titles added every month</h3>
