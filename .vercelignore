@@ -1,0 +1,5 @@
+# Keep these in git (clonable on any machine) but DON'T serve them on the live site
+docs/
+versions/
+HANDOFF.md
+*.md
