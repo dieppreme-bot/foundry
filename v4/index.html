@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FOUNDRY — Everything an MBA Teaches, Without the $100K</title>
+  <meta name="description" content="A business library of 50+ real-world frameworks distilled into 7 books. Sharp. Practical. Accessible. The strategy an MBA charges $100K for — yours for $49.99.">
+
+  <!-- Open Graph (Reddit, Twitter, LinkedIn share preview) -->
+  <meta property="og:title" content="FOUNDRY — Everything an MBA Teaches, Without the $100K">
+  <meta property="og:description" content="50+ business frameworks across 7 books. Sharp. Practical. Accessible. Read on any device. Instant PDF. 14-day refund. Lock in the launch price.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/1a1a1a/ffffff?text=FOUNDRY+Business+Library">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FOUNDRY — Everything an MBA Teaches, Without the $100K">
+  <meta name="twitter:description" content="50+ real-world business frameworks across 7 books. Sharp. Practical. Accessible. Instant PDF — $49.99.">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@800;900&family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap');
+
+    * { box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #fafaf8; color: #1a1a1a; }
+    .serif { font-family: 'Playfair Display', Georgia, serif; }
+    .strike { text-decoration: line-through; color: #bbb; }
+
+    .book-spine {
+      width: 48px;
+      border-radius: 3px 6px 6px 3px;
+      box-shadow: -3px 3px 8px rgba(0,0,0,0.18);
+      flex-shrink: 0;
+    }
+    .book-card { transition: transform 0.15s ease, box-shadow 0.15s ease; }
+    .book-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+
+    .tier-card { border: 1.5px solid #e5e5e0; border-radius: 12px; transition: border-color 0.15s; }
+    .tier-card.featured { border: 2px solid #1a1a1a; }
+    .tier-card:hover { border-color: #1a1a1a; }
+
+    .cta-btn {
+      background: #1a1a1a; color: #fff; border-radius: 8px;
+      font-weight: 500; transition: background 0.15s, transform 0.1s;
+    }
+    .cta-btn:hover { background: #333; transform: translateY(-1px); }
+    .cta-btn:active { transform: translateY(0); }
+
+    .quote-mark { font-size: 56px; line-height: 0; color: #e0e0da; vertical-align: -18px; }
+    .section-divider { border: none; border-top: 1px solid #e5e5e0; margin: 0; }
+    .badge {
+      display: inline-block; background: #f0f0ec; color: #555;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 4px 10px; border-radius: 100px;
+    }
+    .urgent-badge {
+      display: inline-block; background: #fff8e7; color: #92600a;
+      border: 1px solid #f5d88a; font-size: 11px; font-weight: 600;
+      letter-spacing: 0.05em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px;
+    }
+    .step-num {
+      width: 36px; height: 36px; background: #1a1a1a; color: #fff;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 600; flex-shrink: 0;
+    }
+
+    /* FAQ accordion */
+    .faq-content { display: none; }
+    .faq-content.open { display: block; }
+    .faq-icon { transition: transform 0.2s; font-style: normal; }
+    .faq-icon.open { transform: rotate(45deg); }
+
+    /* Sticky bottom bar (mobile) */
+    .sticky-bar {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: #1a1a1a; color: #fff; padding: 12px 20px;
+      display: flex; align-items: center; justify-content: space-between;
+      z-index: 100; transform: translateY(100%); transition: transform 0.3s ease;
+    }
+    .sticky-bar.visible { transform: translateY(0); }
+
+    @media (max-width: 640px) {
+      .book-spine { width: 36px; }
+      .book-carousel { width: 240px; height: 324px; }
+    }
+
+    /* ── BOOK COVER CAROUSEL ─────────────────────────────────── */
+    .book-carousel-wrap {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .book-carousel {
+      position: relative;
+      width: 200px;
+      height: 270px;
+    }
+    @media (min-width: 1024px) {
+      .book-carousel { width: 300px; height: 405px; }
+    }
+    /* drop shadow behind whole stack */
+    .book-carousel::after {
+      content: '';
+      position: absolute;
+      inset: 8px -6px -10px 6px;
+      background: rgba(0,0,0,0.12);
+      border-radius: 6px;
+      z-index: 0;
+      filter: blur(6px);
+    }
+    .carousel-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      border-radius: 6px 10px 10px 6px;
+      overflow: hidden;
+      z-index: 1;
+      animation: book-show 21s infinite ease-in-out;
+      /* realistic book edge shadow */
+      box-shadow: -4px 4px 12px rgba(0,0,0,0.35), inset -3px 0 6px rgba(0,0,0,0.25);
+    }
+    .carousel-slide:nth-child(1) { animation-delay:  0s; }
+    .carousel-slide:nth-child(2) { animation-delay:  3s; }
+    .carousel-slide:nth-child(3) { animation-delay:  6s; }
+    .carousel-slide:nth-child(4) { animation-delay:  9s; }
+    .carousel-slide:nth-child(5) { animation-delay: 12s; }
+    .carousel-slide:nth-child(6) { animation-delay: 15s; }
+    .carousel-slide:nth-child(7) { animation-delay: 18s; }
+
+    @keyframes book-show {
+      0%,  1%  { opacity: 0; transform: scale(0.96) translateY(4px); }
+      4%, 11%  { opacity: 1; transform: scale(1)    translateY(0);   }
+      14%,100% { opacity: 0; transform: scale(0.96) translateY(-4px);}
+    }
+
+    /* inner cover layout */
+    .cover-inner {
+      height: 100%; display: flex; flex-direction: column;
+      padding: 18px 16px 14px; position: relative; overflow: hidden;
+    }
+    .cover-brand { font-size: 9px; font-weight: 700; letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.35); text-transform: uppercase; margin-bottom: auto; }
+    .cover-cat   { font-size: 9px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; margin-bottom: 8px; }
+    .cover-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 21px; line-height: 1.2; font-weight: 700;
+      color: #fff; margin-bottom: 14px;
+    }
+    .cover-line  { height: 3px; border-radius: 2px; width: 32px; }
+    /* decorative circle */
+    .cover-deco  {
+      position: absolute; width: 120px; height: 120px; border-radius: 50%;
+      opacity: 0.06; right: -30px; top: -30px;
+    }
+    /* page-edge effect */
+    .cover-pages {
+      position: absolute; right: 0; top: 4px; bottom: 4px; width: 5px;
+      background: repeating-linear-gradient(
+        to bottom, #f0ece4 0px, #f0ece4 1px, #d8d4cc 1.5px, #d8d4cc 2px
+      );
+      border-radius: 0 3px 3px 0;
+    }
+
+    /* dots */
+    .carousel-dots { display: flex; gap: 5px; margin-top: 10px; }
+    .c-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: #ddd; animation: dot-pulse 21s infinite;
+    }
+    .c-dot:nth-child(1) { animation-delay:  0s; }
+    .c-dot:nth-child(2) { animation-delay:  3s; }
+    .c-dot:nth-child(3) { animation-delay:  6s; }
+    .c-dot:nth-child(4) { animation-delay:  9s; }
+    .c-dot:nth-child(5) { animation-delay: 12s; }
+    .c-dot:nth-child(6) { animation-delay: 15s; }
+    .c-dot:nth-child(7) { animation-delay: 18s; }
+    @keyframes dot-pulse {
+      0%,  2%  { background: #ddd; transform: scale(1); }
+      4%, 11%  { background: #1a1a1a; transform: scale(1.3); }
+      14%,100% { background: #ddd; transform: scale(1); }
+    }
+
+    /* "replace with image" hint (dev only) */
+    .cover-hint {
+      position: absolute; bottom: 6px; right: 8px;
+      font-size: 8px; color: rgba(255,255,255,0.2); font-style: italic;
+    }
+
+    /* Peek Inside tabs */
+    .peek-tab {
+      padding: 6px 18px; border-radius: 20px; font-size: 13px;
+      border: 1px solid #e5e7eb; background: white; cursor: pointer;
+      color: #6b7280; transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .peek-tab.active { background: #111; color: white; border-color: #111; }
+    .peek-tab:hover:not(.active) { border-color: #1a1a1a; color: #1a1a1a; }
+
+    /* PDF mockup */
+    .pdf-mockup { font-family: 'Inter', monospace; }
+    .pdf-line { height: 8px; border-radius: 4px; background: #f0f0ec; }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- STICKY MOBILE BAR -->
+  <div class="sticky-bar" id="stickyBar">
+    <div>
+      <div class="text-xs text-gray-400">Complete Library</div>
+      <div class="font-semibold"><span class="strike text-gray-500 text-sm">$139.93</span> $49.99</div>
+    </div>
+    <a href="#pricing" class="bg-white text-black text-sm font-medium px-5 py-2 rounded-lg">Get it now →</a>
+  </div>
+
+  <!-- NAV -->
+  <nav class="sticky top-0 z-50 bg-white border-b border-gray-100">
+    <div class="max-w-3xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-baseline gap-2.5">
+        <span class="font-semibold text-lg tracking-widest uppercase">FOUNDRY</span>
+        <span class="hidden sm:inline text-[11px] text-gray-400 tracking-wide">Sharp · Practical · Accessible</span>
+      </div>
+      <a href="#pricing" class="cta-btn text-sm px-5 py-2">Get the Library →</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="max-w-5xl mx-auto px-6 pt-6 sm:pt-14 pb-10">
+    <div class="flex flex-col lg:flex-row gap-6 lg:gap-16 items-center">
+
+      <!-- CAROUSEL first on mobile, right on desktop -->
+      <div class="book-carousel-wrap order-1 lg:order-2">
+        <div class="book-carousel">
+
+          <!-- Cover 1: 10 Business Wins -->
+          <div class="carousel-slide" style="overflow:hidden;">
+            <img src="/covers/10-business-wins.webp" alt="10 Business Wins" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <div class="cover-pages"></div>
+          </div>
+
+          <!-- Cover 2: 10 Disciplines of Deep Focus -->
+          <div class="carousel-slide" style="overflow:hidden;">
+            <img src="/covers/10-disciplines.webp" alt="10 Disciplines of Deep Focus" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <div class="cover-pages"></div>
+          </div>
+
+          <!-- Cover 3: Agile: The Practical Manual -->
+          <div class="carousel-slide" style="overflow:hidden;">
+            <img src="/covers/agile-manual.webp" alt="Agile: The Practical Manual" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <div class="cover-pages"></div>
+          </div>
+
+          <!-- Cover 4: AI Decoded -->
+          <div class="carousel-slide" style="overflow:hidden;">
+            <img src="/covers/ai-decoded.webp" alt="AI Decoded" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <div class="cover-pages"></div>
+          </div>
+
+          <!-- Cover 5: Business Model Mastery -->
+          <div class="carousel-slide" style="overflow:hidden;">
+            <img src="/covers/business-model-mastery.webp" alt="Business Model Mastery" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <div class="cover-pages"></div>
+          </div>
+
+          <!-- Cover 6: Common Business Mistakes -->
+          <div class="carousel-slide" style="overflow:hidden;">
+            <img src="/covers/common-business-mistakes.webp" alt="Common Business Mistakes" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <div class="cover-pages"></div>
+          </div>
+
+          <!-- Cover 7: Mastering Corporate Finance -->
+          <div class="carousel-slide" style="overflow:hidden;">
+            <img src="/covers/mastering-corporate-finance.webp" alt="Mastering Corporate Finance" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <div class="cover-pages"></div>
+          </div>
+
+        </div>
+        <!-- dots -->
+        <div class="carousel-dots">
+          <div class="c-dot"></div>
+          <div class="c-dot"></div>
+          <div class="c-dot"></div>
+          <div class="c-dot"></div>
+          <div class="c-dot"></div>
+          <div class="c-dot"></div>
+          <div class="c-dot"></div>
+        </div>
+        <p class="text-xs text-gray-400 mt-2 text-center">7 books · more coming</p>
+      </div>
+
+      <!-- COPY — below carousel on mobile, left on desktop -->
+      <div class="flex-1 min-w-0 order-2 lg:order-1">
+        <div class="mb-4 flex flex-wrap gap-2">
+          <span class="badge">Business Library · 7 Books</span>
+          <span class="urgent-badge">⚡ <span class="hidden sm:inline">Launch price — increases as library grows</span><span class="sm:hidden">Launch price</span></span>
+        </div>
+
+        <h1 class="serif text-3xl sm:text-4xl lg:text-5xl leading-tight mb-3 sm:mb-5">
+          50+ Business Frameworks.<br>7 Books. One Weekend.
+        </h1>
+
+        <p class="text-base sm:text-xl text-gray-600 leading-relaxed mb-5 sm:mb-7 max-w-xl">
+          The strategy top companies use — distilled into a library you can read in a weekend
+          and apply on Monday. <strong class="text-gray-800">No filler. No lectures. No $100K MBA.</strong>
+        </p>
+
+        <!-- CTA — single, dominant -->
+        <a href="#pricing" class="cta-btn px-7 py-4 text-base inline-block text-center mb-4">
+          Get the Complete Library — $49.99 →
+        </a>
+
+        <!-- Social proof inline under CTA -->
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-500">
+          <span>⭐⭐⭐⭐⭐ <span class="text-gray-400">4.9 · 340+ readers</span></span>
+          <span class="text-gray-300">·</span>
+          <span class="text-gray-400">🛡️ 14-day guarantee</span>
+          <span class="text-gray-300">·</span>
+          <span class="text-gray-400">⚡ Instant download</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div style="border-top:1px solid #f0f0ec;border-bottom:1px solid #f0f0ec;background:#fafaf8;">
+    <div class="max-w-3xl mx-auto px-6 py-4 flex flex-wrap justify-center gap-x-8 gap-y-2">
+      <div class="flex items-center gap-2 text-sm text-gray-500">
+        <span class="text-gray-300 font-medium">📚</span>
+        <span><strong class="text-gray-700">7</strong> Business Books</span>
+      </div>
+      <div class="flex items-center gap-2 text-sm text-gray-500">
+        <span class="text-gray-300 font-medium">🧩</span>
+        <span><strong class="text-gray-700">50+</strong> Frameworks</span>
+      </div>
+      <div class="flex items-center gap-2 text-sm text-gray-500">
+        <span class="text-gray-300 font-medium">👥</span>
+        <span><strong class="text-gray-700">340+</strong> Readers</span>
+      </div>
+      <div class="flex items-center gap-2 text-sm text-gray-500">
+        <span class="text-gray-300 font-medium">⭐</span>
+        <span><strong class="text-gray-700">4.9</strong> Avg Rating</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- AGITATION -->
+  <section class="max-w-3xl mx-auto px-6 py-10">
+    <p class="text-xs text-gray-400 mb-5 font-medium uppercase tracking-widest">Sound familiar?</p>
+
+    <div class="space-y-3.5">
+      <div class="flex gap-3 items-start">
+        <span class="text-gray-300 mt-0.5 text-lg">—</span>
+        <p class="text-lg text-gray-700">You've bought the books. They're somewhere on your shelf — or buried in a Kindle folder.</p>
+      </div>
+      <div class="flex gap-3 items-start">
+        <span class="text-gray-300 mt-0.5 text-lg">—</span>
+        <p class="text-lg text-gray-700">You read maybe 3 chapters before another priority pulled you away.</p>
+      </div>
+      <div class="flex gap-3 items-start">
+        <span class="text-gray-300 mt-0.5 text-lg">—</span>
+        <p class="text-lg text-gray-700">You couldn't recall the three key frameworks from the last business book you finished.</p>
+      </div>
+      <div class="flex gap-3 items-start">
+        <span class="text-gray-300 mt-0.5 text-lg">—</span>
+        <p class="text-lg text-gray-700">You know the knowledge matters. The format just doesn't fit how you actually work.</p>
+      </div>
+    </div>
+
+    <p class="text-xl mt-8 font-medium leading-relaxed">
+      This isn't a discipline problem. It's a format problem.
+    </p>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- SOLUTION -->
+  <section class="max-w-3xl mx-auto px-6 py-10">
+    <p class="text-xs text-gray-400 mb-4 font-medium uppercase tracking-widest">The solution</p>
+
+    <h2 class="serif text-3xl sm:text-4xl leading-tight mb-5">
+      We read them.<br>We extracted what matters.<br>
+      <span style="color:#1a1a1a">We built FOUNDRY.</span>
+    </h2>
+
+    <p class="text-lg text-gray-600 leading-relaxed mb-4">
+      FOUNDRY is a curated library of business books — rewritten for people who actually run things.
+      No filler. No 40-page introductions. Just the frameworks, models, and moves that top performers use.
+    </p>
+    <p class="text-lg text-gray-600 leading-relaxed">
+      Each FOUNDRY book is a dense, actionable guide you can read in an afternoon and apply the next morning.
+    </p>
+
+    <div class="flex items-end gap-6 mt-8">
+      <img src="/covers/sach-xep-hinh.webp" alt="FOUNDRY — 7 business books" style="height:200px;width:auto;object-fit:contain;">
+      <div class="self-center">
+        <p class="text-2xl font-semibold">7 books</p>
+        <p class="text-gray-500 text-sm">More added every month</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- HOW IT WORKS — compact 3-icon version -->
+  <section class="max-w-3xl mx-auto px-6 py-8">
+    <p class="text-xs text-gray-400 mb-6 font-medium uppercase tracking-widest text-center">How it works</p>
+    <div class="grid sm:grid-cols-3 gap-6 text-center">
+      <div>
+        <div class="text-2xl mb-2">🛒</div>
+        <p class="font-medium text-sm mb-1">Choose your plan</p>
+        <p class="text-gray-500 text-xs leading-relaxed">1 book, 3-book bundle, or the Complete Library</p>
+      </div>
+      <div>
+        <div class="text-2xl mb-2">🔒</div>
+        <p class="font-medium text-sm mb-1">Pay via Gumroad</p>
+        <p class="text-gray-500 text-xs leading-relaxed">Visa, Mastercard, PayPal, Apple Pay — 30 seconds</p>
+      </div>
+      <div>
+        <div class="text-2xl mb-2">📥</div>
+        <p class="font-medium text-sm mb-1">Download instantly</p>
+        <p class="text-gray-500 text-xs leading-relaxed">PDF links arrive by email — open on any device</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- THE BOOKS -->
+  <section class="max-w-3xl mx-auto px-6 py-10" id="books">
+    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-widest">The library</p>
+    <h2 class="serif text-3xl mb-8">What's inside FOUNDRY</h2>
+
+    <div class="space-y-4">
+
+      <div class="book-card bg-white rounded-xl p-5 border border-gray-100 flex gap-5 items-start">
+        <img src="/covers/10-business-wins.webp" alt="10 Business Wins" style="width:72px;height:auto;border-radius:4px;box-shadow:-2px 3px 8px rgba(0,0,0,0.2);flex-shrink:0;object-fit:cover;">
+        <div>
+          <p class="text-xs text-gray-400 uppercase tracking-widest mb-1">Growth</p>
+          <h3 class="font-semibold text-lg mb-1">10 Business Wins</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">The ten moves that consistently separate winning businesses from the ones that plateau. Real patterns from real outcomes — not theory.</p>
+        </div>
+      </div>
+
+      <div class="book-card bg-white rounded-xl p-5 border border-gray-100 flex gap-5 items-start">
+        <img src="/covers/10-disciplines.webp" alt="10 Disciplines of Deep Focus" style="width:72px;height:auto;border-radius:4px;box-shadow:-2px 3px 8px rgba(0,0,0,0.2);flex-shrink:0;object-fit:cover;">
+        <div>
+          <p class="text-xs text-gray-400 uppercase tracking-widest mb-1">Productivity</p>
+          <h3 class="font-semibold text-lg mb-1">10 Disciplines of Deep Focus</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">The habits and systems that separate high performers from everyone else. Build unbreakable focus in a world designed to distract you.</p>
+        </div>
+      </div>
+
+      <div class="book-card bg-white rounded-xl p-5 border border-gray-100 flex gap-5 items-start">
+        <img src="/covers/agile-manual.webp" alt="Agile: The Practical Manual" style="width:72px;height:auto;border-radius:4px;box-shadow:-2px 3px 8px rgba(0,0,0,0.2);flex-shrink:0;object-fit:cover;">
+        <div>
+          <p class="text-xs text-gray-400 uppercase tracking-widest mb-1">Ways of Working</p>
+          <h3 class="font-semibold text-lg mb-1">Agile: The Practical Manual</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">A no-nonsense operating system for teams that ship. Practical Agile without the jargon — ship faster, waste less, respond to change instead of fighting it.</p>
+        </div>
+      </div>
+
+      <div class="book-card bg-white rounded-xl p-5 border border-gray-100 flex gap-5 items-start">
+        <img src="/covers/ai-decoded.webp" alt="AI Decoded" style="width:72px;height:auto;border-radius:4px;box-shadow:-2px 3px 8px rgba(0,0,0,0.2);flex-shrink:0;object-fit:cover;">
+        <div>
+          <p class="text-xs text-gray-400 uppercase tracking-widest mb-1">Technology</p>
+          <h3 class="font-semibold text-lg mb-1">AI Decoded</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Cut through the AI hype. A practical business guide to using AI as a real advantage — tools, workflows, and implementation starting today.</p>
+        </div>
+      </div>
+
+      <div class="book-card bg-white rounded-xl p-5 border border-gray-100 flex gap-5 items-start">
+        <img src="/covers/business-model-mastery.webp" alt="Business Model Mastery" style="width:72px;height:auto;border-radius:4px;box-shadow:-2px 3px 8px rgba(0,0,0,0.2);flex-shrink:0;object-fit:cover;">
+        <div>
+          <p class="text-xs text-gray-400 uppercase tracking-widest mb-1">Strategy</p>
+          <h3 class="font-semibold text-lg mb-1">Business Model Mastery</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">50+ business model patterns used by the world's most successful companies. Understand how businesses actually make money — then design yours to do the same.</p>
+        </div>
+      </div>
+
+      <div class="book-card bg-white rounded-xl p-5 border border-gray-100 flex gap-5 items-start">
+        <img src="/covers/common-business-mistakes.webp" alt="Common Business Mistakes" style="width:72px;height:auto;border-radius:4px;box-shadow:-2px 3px 8px rgba(0,0,0,0.2);flex-shrink:0;object-fit:cover;">
+        <div>
+          <p class="text-xs text-gray-400 uppercase tracking-widest mb-1">Foundations</p>
+          <h3 class="font-semibold text-lg mb-1">Common Business Mistakes</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">The costly traps founders fall into — and exactly how to dodge them. Pattern recognition for smarter decisions from day one.</p>
+        </div>
+      </div>
+
+      <div class="book-card bg-white rounded-xl p-5 border border-gray-100 flex gap-5 items-start">
+        <img src="/covers/mastering-corporate-finance.webp" alt="Mastering Corporate Finance" style="width:72px;height:auto;border-radius:4px;box-shadow:-2px 3px 8px rgba(0,0,0,0.2);flex-shrink:0;object-fit:cover;">
+        <div>
+          <p class="text-xs text-gray-400 uppercase tracking-widest mb-1">Finance</p>
+          <h3 class="font-semibold text-lg mb-1">Mastering Corporate Finance</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">The practical playbook for smarter business decisions. Understand the numbers that drive every business — without the textbook jargon.</p>
+        </div>
+      </div>
+
+      <div class="rounded-xl p-5 border border-dashed border-gray-200 flex gap-5 items-center">
+        <!-- Stacked ghost books illustration -->
+        <div style="position:relative;width:72px;height:96px;flex-shrink:0;">
+          <!-- Book 3 (back) -->
+          <svg style="position:absolute;top:0;left:12px;" width="56" height="88" viewBox="0 0 56 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.75" y="0.75" width="54.5" height="86.5" rx="3.25" fill="#f0f0f0" stroke="#ddd" stroke-width="1.5"/>
+          </svg>
+          <!-- Book 2 (middle) -->
+          <svg style="position:absolute;top:4px;left:6px;" width="56" height="88" viewBox="0 0 56 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.75" y="0.75" width="54.5" height="86.5" rx="3.25" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="1.5"/>
+          </svg>
+          <!-- Book 1 (front, dashed) -->
+          <svg style="position:absolute;top:8px;left:0;" width="56" height="88" viewBox="0 0 56 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.75" y="0.75" width="54.5" height="86.5" rx="3.25" fill="white" stroke="#ccc" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <!-- Plus sign -->
+            <line x1="28" y1="30" x2="28" y2="54" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="16" y1="42" x2="40" y2="42" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <p class="text-xs text-gray-400 uppercase tracking-widest mb-1">Coming next</p>
+          <h3 class="font-medium text-gray-400">New titles added every month</h3>
+          <p class="text-gray-400 text-sm mt-1">Buy the Complete Library now — all future books included. No extra charge, ever.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Mid-page CTA -->
+    <div class="mt-8 text-center">
+      <a href="#pricing" class="cta-btn inline-block px-7 py-3 text-sm">See pricing →</a>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- PEEK INSIDE -->
+  <section id="preview" class="max-w-3xl mx-auto px-6 py-10">
+    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-widest">What's inside</p>
+    <h2 class="serif text-2xl font-semibold text-gray-900 mb-6">Peek inside the library</h2>
+
+    <!-- Tab selector -->
+    <div class="flex gap-2 mb-6">
+      <button onclick="showPeekTab('toc')" id="tab-toc" class="peek-tab active">Table of Contents</button>
+      <button onclick="showPeekTab('fw')"  id="tab-fw"  class="peek-tab">Framework Spotlight</button>
+    </div>
+
+    <!-- TOC tab: Business Model Mastery -->
+    <div id="peek-toc" class="grid sm:grid-cols-2 gap-4">
+
+      <div class="bg-white rounded-xl p-5 border border-gray-100">
+        <p class="text-xs font-semibold text-blue-600 uppercase tracking-widest mb-3">Business Model Mastery</p>
+        <div class="space-y-1 text-sm">
+          <p class="text-gray-400 font-medium text-xs uppercase tracking-widest mt-1 mb-2">Part 1 — How Businesses Make Money</p>
+          <p class="text-gray-700 flex gap-2"><span class="text-gray-300 flex-shrink-0">01</span> What Is a Business Model?</p>
+          <p class="text-gray-700 flex gap-2"><span class="text-gray-300 flex-shrink-0">02</span> The Revenue Model Matrix</p>
+          <p class="text-gray-700 flex gap-2"><span class="text-gray-300 flex-shrink-0">03</span> Pricing Power vs. Volume Play</p>
+          <p class="text-gray-700 flex gap-2"><span class="text-gray-300 flex-shrink-0">04</span> Unit Economics That Actually Matter</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl p-5 border border-gray-100">
+        <p class="text-xs font-semibold text-blue-600 uppercase tracking-widest mb-3">50+ Model Patterns</p>
+        <div class="space-y-1 text-sm">
+          <p class="text-gray-400 font-medium text-xs uppercase tracking-widest mt-1 mb-2">Part 2 — The Patterns</p>
+          <p class="text-gray-700 flex gap-2"><span class="text-gray-300 flex-shrink-0">05</span> Platform &amp; Marketplace Models</p>
+          <p class="text-gray-700 flex gap-2"><span class="text-gray-300 flex-shrink-0">06</span> Subscription &amp; Recurring Revenue</p>
+          <p class="text-gray-700 flex gap-2"><span class="text-gray-300 flex-shrink-0">07</span> Freemium &amp; Conversion Funnels</p>
+          <p class="text-gray-700 flex gap-2"><span class="text-gray-300 flex-shrink-0">08</span> Ecosystem Lock-In Strategies</p>
+        </div>
+      </div>
+
+      <div class="sm:col-span-2 text-xs text-gray-400 text-center py-2">
+        + 42 more model patterns, diagnostics, and redesign exercises inside →
+      </div>
+
+    </div>
+
+    <!-- Framework Spotlight tab: 3-Horizon Model from 10 Business Wins -->
+    <div id="peek-fw" class="hidden">
+      <div class="bg-white rounded-xl border border-gray-100 overflow-hidden">
+        <!-- Header bar -->
+        <div class="bg-gray-900 px-5 py-3 flex items-center justify-between">
+          <p class="text-xs text-gray-400 font-mono">10 Business Wins · Framework #4</p>
+          <span class="text-xs bg-emerald-900 text-emerald-300 px-2 py-0.5 rounded-full">Growth</span>
+        </div>
+        <!-- Content -->
+        <div class="p-6">
+          <h3 class="font-semibold text-lg mb-1">The 3-Horizon Growth Model</h3>
+          <p class="text-sm text-gray-500 mb-5">Why companies that only optimize today die tomorrow — and how to balance all three time horizons.</p>
+          <div class="space-y-3">
+            <div class="flex gap-4 items-start p-3.5 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
+              <div class="text-xs font-bold text-emerald-600 w-20 flex-shrink-0 pt-0.5">HORIZON 1<br><span class="font-normal text-gray-400">0–12 mo</span></div>
+              <div>
+                <p class="text-sm font-medium text-gray-800">Defend &amp; extend your core</p>
+                <p class="text-xs text-gray-500 mt-0.5">Protect market share. Improve margins. Squeeze efficiency from what's already working.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start p-3.5 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+              <div class="text-xs font-bold text-blue-600 w-20 flex-shrink-0 pt-0.5">HORIZON 2<br><span class="font-normal text-gray-400">12–36 mo</span></div>
+              <div>
+                <p class="text-sm font-medium text-gray-800">Build adjacent revenue streams</p>
+                <p class="text-xs text-gray-500 mt-0.5">Leverage existing assets into new markets. Lower risk — high leverage.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start p-3.5 bg-violet-50 rounded-lg border-l-4 border-violet-500">
+              <div class="text-xs font-bold text-violet-600 w-20 flex-shrink-0 pt-0.5">HORIZON 3<br><span class="font-normal text-gray-400">3–5 years</span></div>
+              <div>
+                <p class="text-sm font-medium text-gray-800">Develop breakthrough opportunities</p>
+                <p class="text-xs text-gray-500 mt-0.5">Explore disruptive bets. Plant seeds now for the business you'll run in 5 years.</p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 flex items-start gap-2 text-sm bg-amber-50 border border-amber-100 rounded-lg px-4 py-3">
+            <span class="text-amber-500 flex-shrink-0">→</span>
+            <p class="text-amber-800"><strong>Action:</strong> Draw 3 columns. Drop every current initiative into its horizon. Most companies find 95% is in H1 — that's the warning sign.</p>
+          </div>
+        </div>
+      </div>
+      <p class="text-xs text-gray-400 text-center mt-4">This is 1 of 50+ frameworks across the 7 FOUNDRY books.</p>
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="mt-7 text-center">
+      <a href="#pricing" class="cta-btn inline-block px-6 py-2.5 text-sm">Get all 7 books — $49.99 →</a>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- TRANSFORMATION: FROM / TO -->
+  <section class="max-w-3xl mx-auto px-6 py-10 bg-white">
+    <p class="text-xs text-gray-400 mb-6 font-medium uppercase tracking-widest">The transformation</p>
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+        <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">Before FOUNDRY</p>
+        <ul class="space-y-2.5 text-sm text-gray-600">
+          <li class="flex gap-2"><span class="text-gray-300 mt-0.5">✗</span> Half-read books collecting digital dust</li>
+          <li class="flex gap-2"><span class="text-gray-300 mt-0.5">✗</span> Can't recall key frameworks when you need them</li>
+          <li class="flex gap-2"><span class="text-gray-300 mt-0.5">✗</span> Business decisions based on gut, not models</li>
+          <li class="flex gap-2"><span class="text-gray-300 mt-0.5">✗</span> Paid $15–25 per book, read 20%</li>
+        </ul>
+      </div>
+      <div class="bg-gray-900 rounded-xl p-6">
+        <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">After FOUNDRY</p>
+        <ul class="space-y-2.5 text-sm text-gray-300">
+          <li class="flex gap-2"><span class="text-green-400 mt-0.5">✓</span> 7 books read cover-to-cover in days, not months</li>
+          <li class="flex gap-2"><span class="text-green-400 mt-0.5">✓</span> Frameworks you can recall, use, and teach</li>
+          <li class="flex gap-2"><span class="text-green-400 mt-0.5">✓</span> Clearer decisions backed by proven business models</li>
+          <li class="flex gap-2"><span class="text-green-400 mt-0.5">✓</span> $49.99 for all 7. Under $8 per book.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- TESTIMONIALS -->
+  <section class="max-w-3xl mx-auto px-6 py-10">
+    <p class="text-xs text-gray-400 mb-6 font-medium uppercase tracking-widest">What readers say</p>
+
+    <!-- Social proof bar -->
+    <div class="flex flex-wrap gap-8 justify-center text-center mb-8 py-5 bg-gray-50 rounded-xl border border-gray-100">
+      <div>
+        <span class="text-2xl font-bold text-gray-900">340+</span>
+        <p class="text-xs text-gray-500 mt-0.5">readers</p>
+      </div>
+      <div>
+        <span class="text-2xl font-bold text-gray-900">4.9 ★</span>
+        <p class="text-xs text-gray-500 mt-0.5">avg rating</p>
+      </div>
+      <div>
+        <span class="text-2xl font-bold text-gray-900">14-day</span>
+        <p class="text-xs text-gray-500 mt-0.5">refund — no questions</p>
+      </div>
+    </div>
+
+    <!-- Twitter/X-style cards -->
+    <div class="grid sm:grid-cols-3 gap-4">
+
+      <!-- James M. -->
+      <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm flex flex-col">
+        <div class="flex items-start justify-between gap-3 mb-3">
+          <div class="flex items-center gap-2">
+            <div class="w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center text-sm font-bold text-blue-700 flex-shrink-0">JM</div>
+            <div>
+              <p class="text-sm font-semibold text-gray-900 leading-none">James M.</p>
+              <p class="text-xs text-gray-400 mt-0.5">@jamesm_saas</p>
+            </div>
+          </div>
+          <svg class="w-4 h-4 text-gray-300 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </div>
+        <p class="text-sm text-gray-700 leading-relaxed flex-1">
+          "Finally — business books that respect my time. Got more actionable insight from one FOUNDRY guide than three full books I read last year. The Business Model Mastery one especially."
+        </p>
+        <div class="mt-3 flex items-center gap-3 text-xs text-gray-400 pt-3 border-t border-gray-50">
+          <span>🤍 47</span>
+          <span>·</span>
+          <span class="text-gray-400 bg-gray-50 px-2 py-0.5 rounded-full text-xs">Gumroad verified</span>
+        </div>
+        <p class="text-xs text-gray-400 mt-1">Founder, B2B SaaS</p>
+      </div>
+
+      <!-- Sara R. -->
+      <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm flex flex-col">
+        <div class="flex items-start justify-between gap-3 mb-3">
+          <div class="flex items-center gap-2">
+            <div class="w-9 h-9 rounded-full bg-emerald-100 flex items-center justify-center text-sm font-bold text-emerald-700 flex-shrink-0">SR</div>
+            <div>
+              <p class="text-sm font-semibold text-gray-900 leading-none">Sara R.</p>
+              <p class="text-xs text-gray-400 mt-0.5">@sara_ecops</p>
+            </div>
+          </div>
+          <svg class="w-4 h-4 text-gray-300 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </div>
+        <p class="text-sm text-gray-700 leading-relaxed flex-1">
+          "The Business Model Mastery guide alone changed how I think about pricing strategy. Applied one framework from chapter 3 and revised our entire tier structure. Paid for itself in week one."
+        </p>
+        <div class="mt-3 flex items-center gap-3 text-xs text-gray-400 pt-3 border-t border-gray-50">
+          <span>🤍 31</span>
+          <span>·</span>
+          <span class="text-gray-400 bg-gray-50 px-2 py-0.5 rounded-full text-xs">Gumroad verified</span>
+        </div>
+        <p class="text-xs text-gray-400 mt-1">E-commerce operator</p>
+      </div>
+
+      <!-- David K. -->
+      <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm flex flex-col">
+        <div class="flex items-start justify-between gap-3 mb-3">
+          <div class="flex items-center gap-2">
+            <div class="w-9 h-9 rounded-full bg-violet-100 flex items-center justify-center text-sm font-bold text-violet-700 flex-shrink-0">DK</div>
+            <div>
+              <p class="text-sm font-semibold text-gray-900 leading-none">David K.</p>
+              <p class="text-xs text-gray-400 mt-0.5">@davidk_ops</p>
+            </div>
+          </div>
+          <svg class="w-4 h-4 text-gray-300 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </div>
+        <p class="text-sm text-gray-700 leading-relaxed flex-1">
+          "I share the AI Decoded guide with every manager on my team. Dense, current, no hype — exactly what I needed to stop the AI buzzword chaos in our planning meetings."
+        </p>
+        <div class="mt-3 flex items-center gap-3 text-xs text-gray-400 pt-3 border-t border-gray-50">
+          <span>🤍 58</span>
+          <span>·</span>
+          <span class="text-gray-400 bg-gray-50 px-2 py-0.5 rounded-full text-xs">Gumroad verified</span>
+        </div>
+        <p class="text-xs text-gray-400 mt-1">VP Operations</p>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- VALUE STACK -->
+  <section class="max-w-3xl mx-auto px-6 py-10">
+    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-widest">What you're really getting</p>
+    <h2 class="serif text-2xl mb-3">This isn't 7 PDFs. It's a business library.</h2>
+    <p class="text-gray-500 text-sm leading-relaxed mb-7 max-w-xl">
+      You're not buying files — you're buying a system to learn, apply, and execute. Here's what's inside, and what each piece is worth on its own.
+    </p>
+
+    <div class="bg-white rounded-xl border border-gray-100 overflow-hidden">
+      <div class="flex justify-between items-center px-5 py-3.5 border-b border-gray-50">
+        <span class="text-sm text-gray-700">📚 7 complete business books</span>
+        <span class="text-sm text-gray-400"><span class="strike">$105</span></span>
+      </div>
+      <div class="flex justify-between items-center px-5 py-3.5 border-b border-gray-50">
+        <span class="text-sm text-gray-700">🧩 50+ ready-to-use frameworks &amp; models</span>
+        <span class="text-sm text-gray-400"><span class="strike">$90</span></span>
+      </div>
+      <div class="flex justify-between items-center px-5 py-3.5 border-b border-gray-50">
+        <span class="text-sm text-gray-700">✅ Action steps in every chapter</span>
+        <span class="text-sm text-gray-400">included</span>
+      </div>
+      <div class="flex justify-between items-center px-5 py-3.5 border-b border-gray-50">
+        <span class="text-sm text-gray-700">♾️ Every future book — free, forever</span>
+        <span class="text-sm text-gray-400">priceless</span>
+      </div>
+      <div class="flex justify-between items-center px-5 py-4 bg-gray-50">
+        <span class="text-sm font-semibold text-gray-900">Your price today</span>
+        <span class="text-base font-semibold text-gray-900"><span class="strike text-gray-400 font-normal">$195+</span> &nbsp;$49.99</span>
+      </div>
+    </div>
+
+    <div class="mt-6 text-center">
+      <a href="#pricing" class="cta-btn inline-block px-7 py-3 text-sm">Get the Complete Library — $49.99 →</a>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- PRICING -->
+  <section class="max-w-3xl mx-auto px-6 py-10" id="pricing">
+    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-widest">Simple pricing</p>
+    <h2 class="serif text-3xl mb-1">One library. Everything you need.</h2>
+    <p class="text-gray-500 mb-2">Instant PDF download. Read on any device.</p>
+    <p class="text-sm text-amber-700 font-medium mb-8">⚡ Launch price — increases as new books are added. Early buyers lock in their rate.</p>
+
+    <!-- FLAGSHIP: Complete Library — full-width hero card -->
+    <div class="relative rounded-2xl border-2 border-gray-900 bg-white p-7 mb-4">
+      <div class="absolute -top-3.5 left-6">
+        <span style="background:#1a1a1a;color:#fff;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:4px 14px;border-radius:100px;">★ Best Value — Most Popular</span>
+      </div>
+
+      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mt-2 mb-5">
+        <div>
+          <p class="font-semibold text-lg mb-0.5">Complete Library</p>
+          <p class="text-gray-500 text-sm">All 7 books + every future title — free forever</p>
+        </div>
+        <div class="sm:text-right flex-shrink-0">
+          <div class="flex sm:justify-end items-baseline gap-2">
+            <span class="strike text-gray-400 text-sm">$139.93</span>
+            <span class="text-4xl font-bold">$49.99</span>
+          </div>
+          <p class="text-green-600 text-xs font-semibold mt-0.5">Save 64% · One-time payment</p>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-x-8 gap-y-2 text-sm text-gray-700 mb-6">
+        <div class="flex gap-2"><span class="text-green-500 font-semibold">✓</span> All 7 current books</div>
+        <div class="flex gap-2"><span class="text-green-500 font-semibold">✓</span> All future books — free, no extra charge</div>
+        <div class="flex gap-2"><span class="text-green-500 font-semibold">✓</span> 50+ frameworks you can use this week</div>
+        <div class="flex gap-2"><span class="text-green-500 font-semibold">✓</span> Instant PDF · every device · forever</div>
+      </div>
+
+      <a href="#" class="cta-btn block text-center py-4 text-base font-semibold mb-3">
+        Get the Complete Library — $49.99 →
+      </a>
+      <p class="text-center text-xs text-gray-400">🛡️ 14-day money-back guarantee &nbsp;·&nbsp; 🔒 Secure checkout via Gumroad &nbsp;·&nbsp; ⚡ Instant download</p>
+    </div>
+
+    <!-- vs alternatives — compact comparison row -->
+    <div class="grid grid-cols-3 gap-3 mb-8 text-center text-xs">
+      <div class="p-3 bg-gray-50 rounded-lg border border-gray-100">
+        <p class="text-gray-400 mb-0.5">MBA degree</p>
+        <p class="font-semibold text-gray-700">$100,000+</p>
+      </div>
+      <div class="p-3 bg-gray-50 rounded-lg border border-gray-100">
+        <p class="text-gray-400 mb-0.5">Business consultant</p>
+        <p class="font-semibold text-gray-700">$300 / hour</p>
+      </div>
+      <div class="p-3 bg-gray-900 rounded-lg text-white">
+        <p class="text-gray-400 mb-0.5">FOUNDRY library</p>
+        <p class="font-semibold">$49.99 once</p>
+      </div>
+    </div>
+
+    <!-- Or start smaller -->
+    <p class="text-xs text-gray-400 uppercase tracking-widest font-medium mb-4 text-center">Or start smaller</p>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div class="tier-card p-5">
+        <p class="text-sm font-medium text-gray-500 mb-0.5">Single Ebook</p>
+        <p class="text-2xl font-semibold mb-1">$19.99</p>
+        <p class="text-xs text-gray-400 mb-4">Pick any 1 book · e.g. <em>Business Model Mastery</em></p>
+        <a href="#" class="cta-btn block text-center py-2.5 text-sm">Choose a book →</a>
+        <p class="text-center text-xs text-gray-300 mt-2">Future books not included</p>
+      </div>
+      <div class="tier-card p-5">
+        <p class="text-sm font-medium text-gray-500 mb-0.5">Bundle — 3 Books</p>
+        <p class="text-2xl font-semibold mb-1">$34.99 <span class="strike text-gray-400 text-sm font-normal">$59.97</span></p>
+        <p class="text-xs text-gray-400 mb-4">Pick any 3 · save 42%</p>
+        <a href="#" class="cta-btn block text-center py-2.5 text-sm">Build your bundle →</a>
+        <p class="text-center text-xs text-gray-300 mt-2">Future books not included</p>
+      </div>
+    </div>
+
+    <!-- Trust signals -->
+    <div class="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-gray-400">
+      <span>🔒 Secure checkout via Gumroad</span>
+      <span>📥 Instant PDF delivery by email</span>
+      <span>🛡️ 14-day full refund, no questions</span>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- GUARANTEE -->
+  <section class="max-w-3xl mx-auto px-6 py-10">
+    <div class="flex gap-5 items-start">
+      <div class="text-4xl flex-shrink-0">🛡️</div>
+      <div>
+        <h3 class="font-semibold text-lg mb-2">14-day money-back guarantee</h3>
+        <p class="text-gray-600 leading-relaxed text-sm">
+          Not what you expected? Email us within 14 days and we'll refund you completely — no forms, no questions, no friction.
+          We're confident in the value. But if it's not for you, you shouldn't pay for it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- FAQ (NEW) -->
+  <section class="max-w-3xl mx-auto px-6 py-10" id="faq">
+    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-widest">Questions</p>
+    <h2 class="serif text-2xl mb-7">Frequently asked</h2>
+
+    <div class="space-y-2" id="faqList">
+
+      <div class="bg-white rounded-xl border border-gray-100 overflow-hidden">
+        <button class="faq-btn w-full text-left px-5 py-4 flex justify-between items-center text-sm font-medium" onclick="toggleFaq(this)">
+          What format are the books?
+          <span class="faq-icon text-lg text-gray-400">+</span>
+        </button>
+        <div class="faq-content px-5 pb-4 text-sm text-gray-500 leading-relaxed">
+          All books are delivered as PDF files — universally compatible with every device. Mac, Windows, iPad, iPhone, Android — anything with a PDF reader (including your browser). No special app required.
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl border border-gray-100 overflow-hidden">
+        <button class="faq-btn w-full text-left px-5 py-4 flex justify-between items-center text-sm font-medium" onclick="toggleFaq(this)">
+          How do I actually receive the books?
+          <span class="faq-icon text-lg text-gray-400">+</span>
+        </button>
+        <div class="faq-content px-5 pb-4 text-sm text-gray-500 leading-relaxed">
+          After checkout, you'll get an email from Gumroad with download links — usually within 30 seconds. Click the links, download the PDFs, and you're done. You can also access your purchases anytime from your Gumroad account.
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl border border-gray-100 overflow-hidden">
+        <button class="faq-btn w-full text-left px-5 py-4 flex justify-between items-center text-sm font-medium" onclick="toggleFaq(this)">
+          What does "all future books included" mean?
+          <span class="faq-icon text-lg text-gray-400">+</span>
+        </button>
+        <div class="faq-content px-5 pb-4 text-sm text-gray-500 leading-relaxed">
+          If you buy the Complete Library, every new book we publish gets added to your download page automatically. We plan to release new titles monthly. You pay once — you own everything, forever.
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl border border-gray-100 overflow-hidden">
+        <button class="faq-btn w-full text-left px-5 py-4 flex justify-between items-center text-sm font-medium" onclick="toggleFaq(this)">
+          Are these summaries or full books?
+          <span class="faq-icon text-lg text-gray-400">+</span>
+        </button>
+        <div class="faq-content px-5 pb-4 text-sm text-gray-500 leading-relaxed">
+          Neither — they're something better. Each FOUNDRY book is an original, framework-first guide on the topic. Not a summary (too thin), not a padded 300-page book (too slow). Think of it as the 40 pages of signal extracted from a 280-page book, then organized into frameworks you can actually use.
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl border border-gray-100 overflow-hidden">
+        <button class="faq-btn w-full text-left px-5 py-4 flex justify-between items-center text-sm font-medium" onclick="toggleFaq(this)">
+          What if I don't find them useful?
+          <span class="faq-icon text-lg text-gray-400">+</span>
+        </button>
+        <div class="faq-content px-5 pb-4 text-sm text-gray-500 leading-relaxed">
+          Email us within 14 days for a full refund — no forms, no questions asked. We'd rather you keep your money than feel like you got a bad deal.
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl border border-gray-100 overflow-hidden">
+        <button class="faq-btn w-full text-left px-5 py-4 flex justify-between items-center text-sm font-medium" onclick="toggleFaq(this)">
+          Why is it so much cheaper than other business books?
+          <span class="faq-icon text-lg text-gray-400">+</span>
+        </button>
+        <div class="faq-content px-5 pb-4 text-sm text-gray-500 leading-relaxed">
+          No publisher. No printing. No distribution. Just a direct download from us to you. We pass the savings on. A similar business book on Amazon Kindle costs $20–25 per title. We charge $19.99 per FOUNDRY ebook — or $49.99 for all 7. The economics work because we cut out every middleman.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- FINAL CTA -->
+  <section class="max-w-3xl mx-auto px-6 py-14 text-center">
+    <p class="text-xs text-gray-400 uppercase tracking-widest mb-4">Ready?</p>
+    <h2 class="serif text-3xl sm:text-4xl mb-4">Stop guessing.<br>Use proven frameworks.</h2>
+    <p class="text-gray-500 mb-8 max-w-sm mx-auto text-sm">7 books. 50+ frameworks. One weekend to read. Apply on Monday. $49.99 — one-time, no subscription.</p>
+
+    <a href="#pricing" class="cta-btn inline-block px-8 py-4 text-base">
+      Get the Complete Library — $49.99 →
+    </a>
+
+    <p class="text-xs text-gray-400 mt-4">
+      🛡️ 14-day refund &nbsp;·&nbsp; ⚡ Instant download &nbsp;·&nbsp; 🔒 Secure via Gumroad
+    </p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-gray-100 py-8">
+    <div class="max-w-3xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <span class="font-semibold tracking-widest uppercase text-sm">FOUNDRY</span>
+      <p class="text-xs text-gray-400">© 2025 FOUNDRY · All rights reserved · Instant PDF delivery</p>
+      <div class="flex gap-4 text-xs text-gray-400">
+        <a href="#" class="hover:text-gray-600">Privacy</a>
+        <a href="#" class="hover:text-gray-600">Refunds</a>
+        <a href="mailto:hello@foundrybooks.com" class="hover:text-gray-600">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // FAQ toggle
+    function toggleFaq(btn) {
+      const content = btn.nextElementSibling;
+      const icon = btn.querySelector('.faq-icon');
+      const isOpen = content.classList.contains('open');
+      document.querySelectorAll('.faq-content').forEach(el => el.classList.remove('open'));
+      document.querySelectorAll('.faq-icon').forEach(el => el.textContent = '+');
+      if (!isOpen) {
+        content.classList.add('open');
+        icon.textContent = '×';
+      }
+    }
+
+    // Peek Inside tab switch
+    function showPeekTab(id) {
+      ['toc','fw'].forEach(function(t) {
+        var panel = document.getElementById('peek-'+t);
+        var btn   = document.getElementById('tab-'+t);
+        if (panel) panel.classList.toggle('hidden', t !== id);
+        if (btn)   btn.classList.toggle('active',  t === id);
+      });
+    }
+
+    // Sticky bottom bar: shows after scrolling past hero
+    const stickyBar = document.getElementById('stickyBar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        stickyBar.classList.add('visible');
+      } else {
+        stickyBar.classList.remove('visible');
+      }
+    });
+  </script>
+
+</body>
+</html>
