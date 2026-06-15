@@ -77,7 +77,10 @@
     }
     .sticky-bar.visible { transform: translateY(0); }
 
-    @media (max-width: 640px) { .book-spine { width: 36px; } }
+    @media (max-width: 640px) {
+      .book-spine { width: 36px; }
+      .book-carousel { width: 240px; height: 324px; }
+    }
 
     /* ── BOOK COVER CAROUSEL ─────────────────────────────────── */
     .book-carousel-wrap {
@@ -217,57 +220,11 @@
   </nav>
 
   <!-- HERO -->
-  <section class="max-w-5xl mx-auto px-6 pt-14 pb-10">
-    <div class="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+  <section class="max-w-5xl mx-auto px-6 pt-6 sm:pt-14 pb-10">
+    <div class="flex flex-col lg:flex-row gap-6 lg:gap-16 items-center">
 
-      <!-- LEFT: copy -->
-      <div class="flex-1 min-w-0">
-        <div class="mb-5 flex flex-wrap gap-2">
-          <span class="badge">Business Library · 7 Books</span>
-          <span class="urgent-badge">⚡ Launch price — increases as library grows</span>
-        </div>
-
-        <h1 class="serif text-4xl sm:text-5xl leading-tight mb-5">
-          You don't have time<br>to read business books.<br>
-          <span style="color:#888">Neither do most CEOs.</span>
-        </h1>
-
-        <p class="text-xl text-gray-600 leading-relaxed mb-4 max-w-xl">
-          So we built the shortcut. <strong class="text-gray-800">50+ real-world business frameworks</strong>,
-          distilled into 7 books you can read in an afternoon and apply the next morning.
-          The strategy an MBA charges six figures for — without the lectures, the debt, or the two years.
-        </p>
-
-        <!-- Social proof -->
-        <div class="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-8">
-          <span>⭐⭐⭐⭐⭐</span>
-          <span class="text-gray-400">4.9 · 340+ readers</span>
-          <span>·</span>
-          <span>Instant PDF download</span>
-        </div>
-
-        <!-- CTA -->
-        <div class="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
-          <a href="#pricing" class="cta-btn px-7 py-3.5 text-base">
-            Get the full library — $49.99 →
-          </a>
-          <div class="text-sm text-gray-500">
-            <span class="strike">$139.93</span> if bought separately &nbsp;·&nbsp; save 64%
-          </div>
-        </div>
-
-        <!-- Risk reversal micro -->
-        <p class="mt-3 text-xs text-gray-400">🛡️ 14-day money-back guarantee · 🔒 Secure checkout · ⚡ Lifetime updates</p>
-
-        <!-- MBA price anchor -->
-        <div class="mt-6 inline-flex items-start gap-2 text-xs text-gray-500 bg-gray-50 border border-gray-200 rounded-lg px-4 py-2.5">
-          <span>🎓</span>
-          <span>An MBA costs <strong class="text-gray-700">$100,000+</strong> and two years. The same core thinking, distilled into FOUNDRY: <strong class="text-gray-700">$49.99</strong> and a weekend.</span>
-        </div>
-      </div>
-
-      <!-- RIGHT: book cover carousel -->
-      <div class="book-carousel-wrap">
+      <!-- CAROUSEL first on mobile, right on desktop -->
+      <div class="book-carousel-wrap order-1 lg:order-2">
         <div class="book-carousel">
 
           <!-- Cover 1: 10 Business Wins -->
@@ -324,6 +281,50 @@
           <div class="c-dot"></div>
         </div>
         <p class="text-xs text-gray-400 mt-2 text-center">7 books · more coming</p>
+      </div>
+
+      <!-- COPY — below carousel on mobile, left on desktop -->
+      <div class="flex-1 min-w-0 order-2 lg:order-1">
+        <div class="mb-4 flex flex-wrap gap-2">
+          <span class="badge">Business Library · 7 Books</span>
+          <span class="urgent-badge">⚡ <span class="hidden sm:inline">Launch price — increases as library grows</span><span class="sm:hidden">Launch price</span></span>
+        </div>
+
+        <h1 class="serif text-3xl sm:text-4xl lg:text-5xl leading-tight mb-3 sm:mb-5">
+          You don't have time<br>to read business books.<br>
+          <span style="color:#888">Neither do most CEOs.</span>
+        </h1>
+
+        <p class="text-base sm:text-xl text-gray-600 leading-relaxed mb-3 sm:mb-4 max-w-xl">
+          So we built the shortcut. <strong class="text-gray-800">50+ real-world business frameworks</strong>,
+          distilled into 7 books you can read in an afternoon and apply the next morning.
+          The strategy an MBA charges six figures for — without the lectures, the debt, or the two years.
+        </p>
+
+        <!-- Social proof -->
+        <div class="flex flex-wrap items-center gap-3 text-sm text-gray-500 mb-5 sm:mb-8">
+          <span>⭐⭐⭐⭐⭐ <span class="text-gray-400">4.9 · 340+ readers</span></span>
+          <span class="hidden sm:inline">· Instant PDF download</span>
+        </div>
+
+        <!-- CTA -->
+        <div class="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+          <a href="#pricing" class="cta-btn px-7 py-3.5 text-base w-full sm:w-auto text-center">
+            Get the full library — $49.99 →
+          </a>
+          <div class="text-sm text-gray-500">
+            <span class="strike">$139.93</span> if bought separately &nbsp;·&nbsp; save 64%
+          </div>
+        </div>
+
+        <!-- Risk reversal micro -->
+        <p class="mt-3 text-xs text-gray-400">🛡️ 14-day guarantee · 🔒 Secure · ⚡ Lifetime updates</p>
+
+        <!-- MBA price anchor — desktop only -->
+        <div class="hidden sm:inline-flex mt-6 items-start gap-2 text-xs text-gray-500 bg-gray-50 border border-gray-200 rounded-lg px-4 py-2.5">
+          <span>🎓</span>
+          <span>An MBA costs <strong class="text-gray-700">$100,000+</strong> and two years. The same core thinking, distilled into FOUNDRY: <strong class="text-gray-700">$49.99</strong> and a weekend.</span>
+        </div>
       </div>
 
     </div>
