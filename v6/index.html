@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FOUNDRY Business Mastery Bundle — 25 Products. One Practical System.</title>
+  <meta name="description" content="25 business learning products covering strategy, finance, leadership, marketing, operations, and AI. One practical system for better business thinking. $49 launch price.">
+  <meta property="og:title" content="FOUNDRY Business Mastery Bundle — Think. Decide. Lead. Grow.">
+  <meta property="og:description" content="25 practical business learning products. One system. Better thinking, better decisions, stronger leadership. $49 launch price — increases to $79.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/0F172A/ffffff?text=FOUNDRY+Business+Mastery+Bundle">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #fafaf8; color: #1a1a1a; }
+    .serif { font-family: 'Playfair Display', Georgia, serif; }
+    .condensed { font-family: 'Barlow Condensed', sans-serif; }
+    .strike { text-decoration: line-through; color: #bbb; }
+
+    .eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600; font-size: 11px; letter-spacing: 0.18em;
+      text-transform: uppercase; color: #999; display: block;
+    }
+    .eyebrow-amber { color: #D97706; }
+
+    .sticky-bar {
+      display: none;
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+      background: #111; color: white;
+      padding: 12px 20px;
+      align-items: center; justify-content: space-between;
+      box-shadow: 0 -2px 16px rgba(0,0,0,0.3);
+    }
+    @media (max-width: 640px) { .sticky-bar { display: flex; } }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: #f0f0ec; color: #555; font-size: 11px;
+      font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 100px;
+    }
+    .urgent-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: #FEF3C7; color: #92400E; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 100px;
+      border: 1px solid #FCD34D;
+    }
+
+    .cta-btn {
+      background: #111; color: #fff;
+      border-radius: 10px; font-weight: 700;
+      transition: background 0.15s, transform 0.12s, box-shadow 0.15s;
+      cursor: pointer; border: none; text-decoration: none;
+      display: inline-block; font-size: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .cta-btn:hover { background: #2a2a2a; transform: translateY(-1px); box-shadow: 0 4px 18px rgba(0,0,0,0.25); }
+
+    .cta-btn-light {
+      background: white; color: #111;
+      border-radius: 10px; font-weight: 700;
+      transition: background 0.15s, transform 0.12s;
+      cursor: pointer; border: none; text-decoration: none;
+      display: inline-block;
+    }
+    .cta-btn-light:hover { background: #f0f0ec; transform: translateY(-1px); }
+
+    .cta-btn-outline {
+      background: transparent; color: #1a1a1a;
+      border: 2px solid rgba(0,0,0,0.2); border-radius: 10px; font-weight: 600;
+      transition: background 0.15s, border-color 0.15s; cursor: pointer; text-decoration: none;
+      display: inline-block;
+    }
+    .cta-btn-outline:hover { background: #f0f0ec; border-color: #1a1a1a; }
+
+    .cta-btn-outline-light {
+      background: transparent; color: white;
+      border: 2px solid rgba(255,255,255,0.25); border-radius: 10px; font-weight: 600;
+      transition: background 0.15s, border-color 0.15s; cursor: pointer; text-decoration: none;
+      display: inline-block;
+    }
+    .cta-btn-outline-light:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.5); }
+
+    .section-divider { border: none; border-top: 1px solid #f0f0ec; margin: 0; }
+    .dark-section { background: #0F172A; color: white; }
+
+    .proof-num { font-size: 30px; font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
+
+    .problem-card {
+      background: white; border: 1px solid #ffd6d8;
+      border-radius: 12px; padding: 18px 20px;
+      display: flex; gap: 12px; align-items: flex-start;
+    }
+
+    .outcome-card {
+      background: white; border: 1px solid #efefeb;
+      border-radius: 12px; padding: 18px 20px;
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+    .outcome-icon {
+      width: 34px; height: 34px; border-radius: 8px;
+      background: #f5f5f2; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .track-card {
+      background: #1a2236; border: 1px solid #253044;
+      border-radius: 16px; padding: 28px 24px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .track-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.25); transform: translateY(-3px); }
+    .track-icon-wrap {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: #243050; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .diff-item {
+      display: flex; align-items: flex-start; gap: 24px;
+      padding: 28px 0; border-bottom: 1px solid #f0f0ec;
+    }
+    .diff-item:last-child { border-bottom: none; }
+    .diff-num {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 52px; font-weight: 700; color: #e8e8e4;
+      line-height: 1; flex-shrink: 0; width: 60px; text-align: right;
+    }
+
+    .from-to-row { display: flex; align-items: stretch; }
+    .from-cell {
+      flex: 1; padding: 14px 18px; background: #f0f0ec;
+      border: 1px solid #e0e0dc; border-right: none;
+      border-radius: 10px 0 0 10px; font-size: 14px; color: #777;
+    }
+    .arrow-cell {
+      padding: 14px 11px; background: #444; color: white;
+      font-size: 13px; flex-shrink: 0; display: flex; align-items: center;
+    }
+    .to-cell {
+      flex: 1; padding: 14px 18px; background: #111; color: #ddd;
+      border-radius: 0 10px 10px 0; font-size: 14px; font-weight: 500;
+    }
+
+    .price-hero {
+      background: white; border: 2px solid #111;
+      border-radius: 20px; padding: 36px 36px 32px;
+    }
+    .comparison-row { display: grid; grid-template-columns: 1fr 1fr 1.3fr; gap: 12px; }
+
+    .faq-content { display: none; }
+    .faq-btn.open + .faq-content { display: block; }
+    .faq-icon { transition: transform 0.2s; display: inline-flex; }
+    .faq-btn.open .faq-icon { transform: rotate(45deg); }
+
+    /* ── v6 HERO: 7-cover fan ── */
+    .hero-v6 {
+      background: #0F172A;
+      padding: 44px 24px 52px;
+      text-align: center;
+    }
+    .hero-v6-badges {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+      margin-bottom: 22px;
+    }
+    .hero-v6-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-weight: 900; line-height: 1.1; letter-spacing: -0.02em;
+      color: #fff; margin-bottom: 6px;
+    }
+    .hero-v6-subtitle {
+      font-size: 14px; color: #94a3b8;
+      margin-bottom: 32px; font-style: italic;
+    }
+
+    /* Fan of 7 books */
+    .fan-outer {
+      /* clips horizontal overflow from rotated books */
+      overflow: hidden;
+      width: 100%;
+      padding: 0 0 12px;
+      margin-bottom: 28px;
+    }
+    .fan-container {
+      position: relative;
+      width: 280px; height: 210px;
+      margin: 0 auto;
+      overflow: visible; /* books fan beyond container edges */
+    }
+    .fan-book {
+      position: absolute;
+      bottom: 0; left: 50%;
+      width: 104px; height: 146px;
+      object-fit: cover;
+      border-radius: 5px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.55);
+      transform-origin: bottom center;
+    }
+    /* Spread: -36° -24° -12° 0° 12° 24° 36° */
+    .b1 { transform: translateX(-50%) rotate(-36deg); z-index:1; }
+    .b2 { transform: translateX(-50%) rotate(-24deg); z-index:2; }
+    .b3 { transform: translateX(-50%) rotate(-12deg); z-index:3; }
+    .b4 { transform: translateX(-50%) rotate(0deg);   z-index:7; }
+    .b5 { transform: translateX(-50%) rotate(12deg);  z-index:3; }
+    .b6 { transform: translateX(-50%) rotate(24deg);  z-index:2; }
+    .b7 { transform: translateX(-50%) rotate(36deg);  z-index:1; }
+    .fan-book:hover { filter: brightness(1.08); transition: filter 0.2s; }
+
+    .hero-v6-proof {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      align-items: center; gap: 6px 14px;
+      font-size: 13px; color: #94a3b8;
+      margin-bottom: 28px;
+    }
+    .hero-v6-stars { color: #f59e0b; letter-spacing: -0.03em; font-size: 15px; }
+    .hero-v6-dot { color: #334155; }
+
+    .hero-v6-cta {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 10px;
+      max-width: 340px; margin: 0 auto;
+    }
+    .hero-v6-price {
+      font-size: 13px; color: #64748b;
+    }
+    .hero-v6-price s { color: #475569; }
+    .hero-v6-price strong { color: #f59e0b; font-size: 18px; font-weight: 800; }
+
+    @media (max-width: 640px) {
+      .comparison-row { grid-template-columns: 1fr; }
+      .from-to-row { flex-direction: column; }
+      .from-cell { border-radius: 10px 10px 0 0; border-right: 1px solid #e0e0dc; border-bottom: none; }
+      .to-cell { border-radius: 0 0 10px 10px; }
+      .arrow-cell { display: none; }
+      .diff-num { font-size: 38px; width: 44px; }
+    }
+  </style>
+</head>
+<body class="antialiased pb-16 sm:pb-0">
+
+  <!-- STICKY MOBILE BAR -->
+  <div class="sticky-bar">
+    <div>
+      <div class="text-xs text-gray-400 mb-0.5 condensed font-semibold tracking-widest uppercase">FOUNDRY Bundle</div>
+      <div class="font-bold text-sm">
+        <span class="line-through text-gray-500 font-normal mr-1">$375</span>$49
+        <span class="text-amber-400 text-xs font-normal ml-1.5">→ $79 soon</span>
+      </div>
+    </div>
+    <a href="#pricing" class="bg-white text-black text-sm font-bold px-5 py-2.5 rounded-xl">Get Access →</a>
+  </div>
+
+  <!-- NAV -->
+  <nav class="sticky top-0 z-50 bg-gray-950 border-b border-gray-800">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-baseline gap-3">
+        <span class="condensed font-bold text-xl tracking-widest uppercase text-white">FOUNDRY</span>
+        <span class="hidden sm:inline text-[10px] text-gray-500 tracking-widest uppercase font-medium">Think · Decide · Lead · Grow</span>
+      </div>
+      <a href="#pricing" class="bg-white text-black text-sm font-bold px-5 py-2.5 rounded-xl hover:bg-gray-100 transition-colors">Get the Bundle →</a>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO v6 — Headline → Fan → Proof → CTA ═══ -->
+  <section class="hero-v6">
+
+    <!-- Badges -->
+    <div class="hero-v6-badges">
+      <span class="badge" style="background:#1e293b;color:#94a3b8;border:1px solid #334155;">25 Business Products</span>
+      <span class="urgent-badge">⚡ $49 — going to $79 soon</span>
+    </div>
+
+    <!-- Headline -->
+    <h1 class="hero-v6-title">
+      Build Better<br>Business Thinking
+    </h1>
+    <p class="hero-v6-subtitle">Everything an MBA teaches — without the $100K</p>
+
+    <!-- Fan of 7 covers -->
+    <div class="fan-outer">
+      <div class="fan-container">
+        <img src="/covers/common-business-mistakes.webp" class="fan-book b1" alt="Common Business Mistakes" loading="eager">
+        <img src="/covers/10-disciplines.webp"           class="fan-book b2" alt="10 Disciplines of Deep Focus" loading="eager">
+        <img src="/covers/agile-manual.webp"             class="fan-book b3" alt="Agile: The Practical Manual" loading="eager">
+        <img src="/covers/business-model-mastery.webp"   class="fan-book b4" alt="Business Model Mastery" loading="eager">
+        <img src="/covers/10-business-wins.webp"         class="fan-book b5" alt="10 Business Wins" loading="eager">
+        <img src="/covers/ai-decoded.webp"               class="fan-book b6" alt="AI Decoded" loading="eager">
+        <img src="/covers/mastering-corporate-finance.webp" class="fan-book b7" alt="Mastering Corporate Finance" loading="eager">
+      </div>
+    </div>
+
+    <!-- Social proof -->
+    <div class="hero-v6-proof">
+      <span class="hero-v6-stars">★★★★★</span>
+      <span>4.9 rating</span>
+      <span class="hero-v6-dot">·</span>
+      <span>340+ readers</span>
+      <span class="hero-v6-dot">·</span>
+      <span>🛡️ 14-day guarantee</span>
+      <span class="hero-v6-dot">·</span>
+      <span>⚡ Instant download</span>
+    </div>
+
+    <!-- CTA -->
+    <div class="hero-v6-cta">
+      <a href="#pricing" class="cta-btn w-full text-center py-4" style="font-size:16px;background:#fff;color:#111;border-radius:12px;">
+        Get the FOUNDRY Bundle — $49 →
+      </a>
+      <div class="hero-v6-price">
+        <s>$375 if bought separately</s> &nbsp;→&nbsp; <strong>$49</strong> launch price
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PROOF BAR — dark -->
+  <div class="bg-gray-900">
+    <div class="max-w-5xl mx-auto px-6 py-7 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+      <div>
+        <div class="proof-num text-white">25</div>
+        <div class="text-gray-500 text-xs mt-1 condensed font-semibold tracking-widest uppercase">Business Products</div>
+      </div>
+      <div>
+        <div class="proof-num text-white">6</div>
+        <div class="text-gray-500 text-xs mt-1 condensed font-semibold tracking-widest uppercase">Core Skill Areas</div>
+      </div>
+      <div>
+        <div class="proof-num text-white">50+</div>
+        <div class="text-gray-500 text-xs mt-1 condensed font-semibold tracking-widest uppercase">Practical Frameworks</div>
+      </div>
+      <div>
+        <div class="proof-num text-amber-400">87%</div>
+        <div class="text-gray-500 text-xs mt-1 condensed font-semibold tracking-widest uppercase">vs. Buying Separately</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROBLEM SECTION -->
+  <section class="max-w-4xl mx-auto px-6 py-16">
+    <span class="eyebrow mb-3">Does this sound familiar?</span>
+    <h2 class="serif text-3xl sm:text-4xl mb-4" style="max-width:530px">Business knowledge is everywhere — but never feels organized.</h2>
+    <p class="text-gray-500 mb-10 max-w-lg text-base leading-relaxed">Most professionals collect information but never build real business judgment. The problem isn't access — it's structure.</p>
+
+    <div class="grid sm:grid-cols-2 gap-3 mb-10">
+      <div class="problem-card">
+        <span class="text-red-400 text-lg flex-shrink-0 font-bold mt-0.5">✕</span>
+        <p class="text-sm text-gray-600 leading-relaxed">You've read dozens of books and articles but still feel uncertain when making big decisions.</p>
+      </div>
+      <div class="problem-card">
+        <span class="text-red-400 text-lg flex-shrink-0 font-bold mt-0.5">✕</span>
+        <p class="text-sm text-gray-600 leading-relaxed">Business concepts like cash flow, market positioning, and team alignment feel abstract — not actionable.</p>
+      </div>
+      <div class="problem-card">
+        <span class="text-red-400 text-lg flex-shrink-0 font-bold mt-0.5">✕</span>
+        <p class="text-sm text-gray-600 leading-relaxed">You jump between YouTube, podcasts, and LinkedIn threads but never build a coherent mental model.</p>
+      </div>
+      <div class="problem-card">
+        <span class="text-red-400 text-lg flex-shrink-0 font-bold mt-0.5">✕</span>
+        <p class="text-sm text-gray-600 leading-relaxed">The MBA costs $50,000+ and takes 2 years. Most courses are either too shallow or too theoretical.</p>
+      </div>
+    </div>
+
+    <div class="bg-gray-900 text-white rounded-2xl px-8 py-7 flex flex-col sm:flex-row gap-6 items-start sm:items-center">
+      <div class="flex-1">
+        <p class="font-bold text-lg mb-2">There's a better way.</p>
+        <p class="text-gray-300 text-sm leading-relaxed">FOUNDRY gives you business frameworks structured into a clear system — so you stop collecting information and start building real business judgment.</p>
+      </div>
+      <a href="#tracks" class="cta-btn-light text-sm font-bold px-6 py-3 flex-shrink-0 whitespace-nowrap">See what's inside →</a>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- WHAT YOU'LL BE ABLE TO DO -->
+  <section class="max-w-4xl mx-auto px-6 py-16">
+    <span class="eyebrow mb-3">Outcomes</span>
+    <h2 class="serif text-3xl sm:text-4xl mb-3" style="max-width:460px">What You'll Be Able To Do</h2>
+    <p class="text-gray-500 mb-10 max-w-lg text-base">With the FOUNDRY Bundle, you'll build real capability across every area of business:</p>
+
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div class="outcome-card">
+        <div class="outcome-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+        </div>
+        <div>
+          <p class="text-sm font-semibold mb-1">Think strategically</p>
+          <p class="text-xs text-gray-500 leading-relaxed">About markets, competition, business models, and long-term direction.</p>
+        </div>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="m18 14-6-6-6 6"/><path d="M6 20h12"/></svg>
+        </div>
+        <div>
+          <p class="text-sm font-semibold mb-1">Make better decisions</p>
+          <p class="text-xs text-gray-500 leading-relaxed">Using clear frameworks, trade-off thinking, and practical business logic.</p>
+        </div>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div>
+          <p class="text-sm font-semibold mb-1">Lead more effectively</p>
+          <p class="text-xs text-gray-500 leading-relaxed">By improving communication, team alignment, and execution.</p>
+        </div>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div>
+          <p class="text-sm font-semibold mb-1">Understand business finance</p>
+          <p class="text-xs text-gray-500 leading-relaxed">Manage costs, cash flow, and resources with confidence.</p>
+        </div>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div>
+          <p class="text-sm font-semibold mb-1">Build marketing &amp; sales logic</p>
+          <p class="text-xs text-gray-500 leading-relaxed">Understand customers, positioning, and value creation.</p>
+        </div>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div>
+          <p class="text-sm font-semibold mb-1">Improve operations &amp; productivity</p>
+          <p class="text-xs text-gray-500 leading-relaxed">Through better systems, workflows, and execution discipline.</p>
+        </div>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div>
+          <p class="text-sm font-semibold mb-1">Apply AI &amp; digital transformation</p>
+          <p class="text-xs text-gray-500 leading-relaxed">To real business challenges and decision-making.</p>
+        </div>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+        </div>
+        <div>
+          <p class="text-sm font-semibold mb-1">Grow with structure</p>
+          <p class="text-xs text-gray-500 leading-relaxed">Instead of relying on random ideas, scattered advice, or trial and error.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 LEARNING TRACKS — dark -->
+  <section class="dark-section" id="tracks">
+    <div class="max-w-4xl mx-auto px-6 py-16">
+      <span class="eyebrow eyebrow-amber mb-3">Inside the Bundle</span>
+      <h2 class="serif text-3xl sm:text-4xl text-white mb-4" style="max-width:500px">6 Practical Learning Tracks</h2>
+      <p class="text-gray-400 mb-12 max-w-lg text-base leading-relaxed">The bundle covers the essential areas of business mastery — structured as 6 interconnected tracks, not a pile of random PDFs.</p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="track-card">
+          <div class="track-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+          </div>
+          <h3 class="font-semibold text-white text-base mb-2">Strategy &amp; Competitive Thinking</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">How businesses compete, position themselves, create value, and choose better directions.</p>
+        </div>
+        <div class="track-card">
+          <div class="track-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3 class="font-semibold text-white text-base mb-2">Finance &amp; Business Control</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Costs, cash flow, financial logic, resource allocation, and performance discipline.</p>
+        </div>
+        <div class="track-card">
+          <div class="track-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F472B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="font-semibold text-white text-base mb-2">Leadership &amp; Management</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Stronger teams, better communication, people management, and organizational effectiveness.</p>
+        </div>
+        <div class="track-card">
+          <div class="track-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3 class="font-semibold text-white text-base mb-2">Marketing, Sales &amp; Customer Value</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Understanding customers, shaping offers, improving positioning, and connecting value with revenue.</p>
+        </div>
+        <div class="track-card">
+          <div class="track-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3 class="font-semibold text-white text-base mb-2">Operations, Productivity &amp; Execution</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Plans into systems, workflows, habits, and measurable execution.</p>
+        </div>
+        <div class="track-card">
+          <div class="track-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F87171" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3 class="font-semibold text-white text-base mb-2">Innovation, Digital &amp; AI Transformation</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Technology, innovation, and AI for smarter decisions and stronger business models.</p>
+        </div>
+      </div>
+
+      <div class="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="#pricing" class="cta-btn-light inline-block px-8 py-4 text-base font-bold text-center">Get the Bundle — $49 →</a>
+        <a href="#pricing" class="cta-btn-outline-light inline-block px-8 py-4 text-base text-center">See pricing details</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY FOUNDRY IS DIFFERENT -->
+  <section class="max-w-4xl mx-auto px-6 py-16">
+    <span class="eyebrow mb-3">Why FOUNDRY</span>
+    <h2 class="serif text-3xl sm:text-4xl mb-4" style="max-width:500px">Built Different From Every Other Business Resource</h2>
+    <p class="text-gray-500 mb-4 max-w-lg text-base">Most business content is too academic, too shallow, or too scattered. FOUNDRY is built around four principles.</p>
+
+    <div class="mt-8">
+      <div class="diff-item">
+        <div class="diff-num">01</div>
+        <div class="pt-2">
+          <p class="font-bold text-lg mb-2">Structured</p>
+          <p class="text-gray-500 text-base leading-relaxed max-w-xl">Not scattered documents — a system with logical learning progression across all core business areas. You build knowledge that compounds, not fragments that accumulate.</p>
+        </div>
+      </div>
+      <div class="diff-item">
+        <div class="diff-num">02</div>
+        <div class="pt-2">
+          <p class="font-bold text-lg mb-2">Practical</p>
+          <p class="text-gray-500 text-base leading-relaxed max-w-xl">Focused on real application, decisions, and action — not theory you forget by next week. Every framework is designed to be used, not admired.</p>
+        </div>
+      </div>
+      <div class="diff-item">
+        <div class="diff-num">03</div>
+        <div class="pt-2">
+          <p class="font-bold text-lg mb-2">Clear</p>
+          <p class="text-gray-500 text-base leading-relaxed max-w-xl">Complex ideas explained simply. No academic jargon. No padding. Just the frameworks that work — explained in a way you can actually use.</p>
+        </div>
+      </div>
+      <div class="diff-item">
+        <div class="diff-num">04</div>
+        <div class="pt-2">
+          <p class="font-bold text-lg mb-2">Expandable</p>
+          <p class="text-gray-500 text-base leading-relaxed max-w-xl">The bundle grows over time — more products, better frameworks, new tools. Everything added is included in your purchase. No upgrade fees, ever.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSFORMATION — dark -->
+  <section class="dark-section">
+    <div class="max-w-4xl mx-auto px-6 py-16">
+      <span class="eyebrow eyebrow-amber mb-3">The Transformation</span>
+      <h2 class="serif text-3xl sm:text-4xl text-white mb-4">You Are Not Just Buying Books</h2>
+      <p class="text-gray-400 mb-10 max-w-lg text-base">You are buying a system to upgrade how you think about business. FOUNDRY helps you move from:</p>
+
+      <div class="space-y-2">
+        <div class="from-to-row">
+          <div class="from-cell">Random business content</div>
+          <div class="arrow-cell">→</div>
+          <div class="to-cell">Structured business understanding</div>
+        </div>
+        <div class="from-to-row">
+          <div class="from-cell">Passive reading</div>
+          <div class="arrow-cell">→</div>
+          <div class="to-cell">Practical application</div>
+        </div>
+        <div class="from-to-row">
+          <div class="from-cell">Confusing concepts</div>
+          <div class="arrow-cell">→</div>
+          <div class="to-cell">Clear, usable frameworks</div>
+        </div>
+        <div class="from-to-row">
+          <div class="from-cell">Scattered ideas</div>
+          <div class="arrow-cell">→</div>
+          <div class="to-cell">Better decisions</div>
+        </div>
+        <div class="from-to-row">
+          <div class="from-cell">Learning without direction</div>
+          <div class="arrow-cell">→</div>
+          <div class="to-cell">Learning with structure and purpose</div>
+        </div>
+        <div class="from-to-row">
+          <div class="from-cell">Knowing theory</div>
+          <div class="arrow-cell">→</div>
+          <div class="to-cell">Applying business logic</div>
+        </div>
+      </div>
+
+      <div class="mt-12 pt-10 border-t border-gray-700 text-center">
+        <p class="serif text-2xl text-white italic mb-2">"To help you think, decide, lead, and grow better."</p>
+        <p class="text-gray-500 text-sm">— The FOUNDRY Promise</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="max-w-4xl mx-auto px-6 py-16">
+    <span class="eyebrow mb-3">Who It's For</span>
+    <h2 class="serif text-3xl sm:text-4xl mb-4">Built For Serious Professionals</h2>
+    <p class="text-gray-500 mb-10 max-w-lg text-base">The FOUNDRY Bundle is built for anyone who wants to think more clearly and act more confidently in business.</p>
+
+    <div class="grid sm:grid-cols-2 gap-3">
+      <div class="flex gap-4 items-start bg-white rounded-xl p-5 border border-gray-100">
+        <span class="text-2xl flex-shrink-0">🚀</span>
+        <div>
+          <p class="font-semibold text-sm mb-1">Founders</p>
+          <p class="text-gray-500 text-xs leading-relaxed">Who want to build smarter companies with clearer thinking and better decisions.</p>
+        </div>
+      </div>
+      <div class="flex gap-4 items-start bg-white rounded-xl p-5 border border-gray-100">
+        <span class="text-2xl flex-shrink-0">📈</span>
+        <div>
+          <p class="font-semibold text-sm mb-1">Managers &amp; Team Leads</p>
+          <p class="text-gray-500 text-xs leading-relaxed">Who want to make better decisions and lead their teams more effectively.</p>
+        </div>
+      </div>
+      <div class="flex gap-4 items-start bg-white rounded-xl p-5 border border-gray-100">
+        <span class="text-2xl flex-shrink-0">💼</span>
+        <div>
+          <p class="font-semibold text-sm mb-1">Professionals</p>
+          <p class="text-gray-500 text-xs leading-relaxed">Who want to understand business faster and outpace colleagues who are still guessing.</p>
+        </div>
+      </div>
+      <div class="flex gap-4 items-start bg-white rounded-xl p-5 border border-gray-100">
+        <span class="text-2xl flex-shrink-0">🎓</span>
+        <div>
+          <p class="font-semibold text-sm mb-1">Students &amp; MBA Learners</p>
+          <p class="text-gray-500 text-xs leading-relaxed">Who want clear, practical explanations of real business concepts — without the $50K price tag.</p>
+        </div>
+      </div>
+      <div class="flex gap-4 items-start bg-white rounded-xl p-5 border border-gray-100">
+        <span class="text-2xl flex-shrink-0">🤝</span>
+        <div>
+          <p class="font-semibold text-sm mb-1">Consultants &amp; Educators</p>
+          <p class="text-gray-500 text-xs leading-relaxed">Who need strong business frameworks to teach, advise, and create high-value content.</p>
+        </div>
+      </div>
+      <div class="flex gap-4 items-start bg-white rounded-xl p-5 border border-gray-100">
+        <span class="text-2xl flex-shrink-0">💡</span>
+        <div>
+          <p class="font-semibold text-sm mb-1">Anyone Building Business Judgment</p>
+          <p class="text-gray-500 text-xs leading-relaxed">Who wants to stop collecting random advice and start building structured thinking.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="max-w-4xl mx-auto px-6 pb-16 pt-4" id="pricing">
+    <div style="background:#FEF3C7;border:1px solid #FCD34D;border-radius:12px;padding:14px 20px;margin-bottom:24px;display:flex;align-items:center;gap:10px;">
+      <span style="font-size:18px;flex-shrink:0;">⚡</span>
+      <p style="font-size:13px;color:#92400E;font-weight:600;margin:0;line-height:1.5"><strong>Launch price ending soon.</strong> Price increases from $49 to $79 when the bundle expands. Early buyers lock in — and get all future additions free.</p>
+    </div>
+
+    <div class="comparison-row mb-6">
+      <div class="bg-white rounded-xl p-5 border border-gray-100 text-center">
+        <span class="eyebrow mb-2">Single Product</span>
+        <p class="font-medium text-gray-700 text-sm mb-2">1 business topic</p>
+        <p class="text-2xl font-bold text-gray-400">$9–$19</p>
+      </div>
+      <div class="bg-white rounded-xl p-5 border border-gray-100 text-center">
+        <span class="eyebrow mb-2">Buying Separately</span>
+        <p class="font-medium text-gray-700 text-sm mb-2">All 25 products</p>
+        <p class="text-2xl font-bold"><span class="strike text-gray-400">~$375</span></p>
+      </div>
+      <div class="rounded-xl p-5 text-center" style="background:#111;">
+        <span class="eyebrow mb-2" style="color:#D97706;">FOUNDRY Bundle</span>
+        <p class="font-medium text-sm mb-2" style="color:#9ca3af;">All 25 products</p>
+        <p class="text-2xl font-bold text-white">$49 <span class="text-xs font-normal" style="color:#6b7280;">launch</span></p>
+      </div>
+    </div>
+
+    <div class="price-hero">
+      <div class="flex flex-wrap gap-2 mb-6">
+        <span style="background:#111;color:#fff;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:5px 14px;border-radius:100px;">★ Best Value</span>
+        <span style="background:#FEF3C7;color:#92400E;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:5px 14px;border-radius:100px;border:1px solid #FCD34D;">⚡ Launch Price</span>
+      </div>
+
+      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-5 mb-7">
+        <div>
+          <p class="font-bold text-xl mb-2">The FOUNDRY Business Mastery Bundle</p>
+          <p class="text-gray-500 text-sm max-w-xs">25 practical business learning products across 6 core tracks. One system for better business thinking.</p>
+        </div>
+        <div class="sm:text-right flex-shrink-0">
+          <div class="flex sm:justify-end items-baseline gap-2 mb-1">
+            <span class="strike text-gray-400 text-base">$375</span>
+            <span class="text-5xl font-black" style="letter-spacing:-0.03em">$49</span>
+          </div>
+          <p class="text-green-600 text-sm font-bold">You save 87%</p>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-sm text-gray-700 mb-8">
+        <div class="flex gap-2.5 items-start"><span class="text-green-500 font-bold flex-shrink-0 mt-0.5">✓</span> All 25 current business learning products</div>
+        <div class="flex gap-2.5 items-start"><span class="text-green-500 font-bold flex-shrink-0 mt-0.5">✓</span> All future products — included, no extra cost</div>
+        <div class="flex gap-2.5 items-start"><span class="text-green-500 font-bold flex-shrink-0 mt-0.5">✓</span> 6 core learning tracks: strategy to AI</div>
+        <div class="flex gap-2.5 items-start"><span class="text-green-500 font-bold flex-shrink-0 mt-0.5">✓</span> 50+ practical frameworks for real decisions</div>
+        <div class="flex gap-2.5 items-start"><span class="text-green-500 font-bold flex-shrink-0 mt-0.5">✓</span> Instant download · All devices · PDF format</div>
+        <div class="flex gap-2.5 items-start"><span class="text-green-500 font-bold flex-shrink-0 mt-0.5">✓</span> Bundle improves and grows over time</div>
+      </div>
+
+      <a href="#" class="cta-btn block text-center py-4 text-base font-bold mb-3 rounded-xl">
+        Get Instant Access — $49 →
+      </a>
+      <p class="text-center text-xs text-gray-400">🛡️ 14-day money-back guarantee &nbsp;·&nbsp; 🔒 Secure checkout via Gumroad &nbsp;·&nbsp; ⚡ Instant download</p>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- FUTURE UPDATES -->
+  <section class="max-w-4xl mx-auto px-6 py-14">
+    <span class="eyebrow mb-3">Future Updates</span>
+    <h2 class="serif text-3xl mb-8">A Bundle That Gets Better Over Time</h2>
+
+    <div class="flex flex-col sm:flex-row gap-8 items-start">
+      <div class="flex-1">
+        <p class="text-gray-600 text-base leading-relaxed mb-4">
+          FOUNDRY is designed as a <strong>growing business learning collection</strong>. As the system evolves, the bundle may be refined with improved products, clearer frameworks, better visuals, practical templates, AI-assisted tools, and new learning resources.
+        </p>
+        <p class="text-gray-600 text-base leading-relaxed">
+          <strong>Early buyers lock in at the launch price</strong> and receive everything that is added — at no extra cost, ever.
+        </p>
+      </div>
+      <div style="background:#f5f5f2;border-radius:16px;padding:28px;min-width:240px;flex-shrink:0;border:1px solid #efefeb;">
+        <span class="eyebrow mb-3">The Promise</span>
+        <p class="serif text-xl italic text-gray-800 leading-relaxed">"To help you think, decide, lead, and grow better."</p>
+        <div class="mt-5 pt-5 border-t border-gray-200">
+          <a href="#pricing" class="cta-btn block text-center text-sm py-3 font-semibold">Lock in $49 →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- FAQ -->
+  <section class="max-w-4xl mx-auto px-6 py-14">
+    <span class="eyebrow mb-3">Questions</span>
+    <h2 class="serif text-3xl mb-8">Frequently Asked</h2>
+
+    <div class="space-y-2">
+      <div class="bg-white rounded-xl border border-gray-100 overflow-hidden">
+        <button class="faq-btn w-full text-left px-5 py-4 flex justify-between items-center text-sm font-semibold" onclick="this.classList.toggle('open')">
+          Is this just a set of PDFs?
+          <span class="faq-icon text-xl text-gray-400 flex-shrink-0 leading-none">+</span>
+        </button>
+        <div class="faq-content px-5 pb-5 text-sm text-gray-500 leading-relaxed">
+          No. FOUNDRY is designed as a structured business learning system. Each product helps you understand a core business topic and apply it in real-world decisions. The goal is not more reading — it is clearer thinking and better decisions.
+        </div>
+      </div>
+      <div class="bg-white rounded-xl border border-gray-100 overflow-hidden">
+        <button class="faq-btn w-full text-left px-5 py-4 flex justify-between items-center text-sm font-semibold" onclick="this.classList.toggle('open')">
+          What exactly is included?
+          <span class="faq-icon text-xl text-gray-400 flex-shrink-0 leading-none">+</span>
+        </button>
+        <div class="faq-content px-5 pb-5 text-sm text-gray-500 leading-relaxed">
+          You get 25 business learning products across strategy, finance, leadership, marketing, operations, innovation, AI, decision-making, and growth. Delivered as instant-download PDFs, organized into 6 practical learning tracks.
+        </div>
+      </div>
+      <div class="bg-white rounded-xl border border-gray-100 overflow-hidden">
+        <button class="faq-btn w-full text-left px-5 py-4 flex justify-between items-center text-sm font-semibold" onclick="this.classList.toggle('open')">
+          Will the bundle change over time?
+          <span class="faq-icon text-xl text-gray-400 flex-shrink-0 leading-none">+</span>
+        </button>
+        <div class="faq-content px-5 pb-5 text-sm text-gray-500 leading-relaxed">
+          Yes. FOUNDRY is a growing collection. Products may be improved, expanded, or supplemented with new materials as the system develops. Early buyers get everything — current and future — at no extra cost.
+        </div>
+      </div>
+      <div class="bg-white rounded-xl border border-gray-100 overflow-hidden">
+        <button class="faq-btn w-full text-left px-5 py-4 flex justify-between items-center text-sm font-semibold" onclick="this.classList.toggle('open')">
+          Why buy the bundle instead of individual products?
+          <span class="faq-icon text-xl text-gray-400 flex-shrink-0 leading-none">+</span>
+        </button>
+        <div class="faq-content px-5 pb-5 text-sm text-gray-500 leading-relaxed">
+          Business problems are connected. Strategy, finance, leadership, marketing, operations, and execution work together. The bundle gives you the full system at a dramatically better price — and locks in your rate before it increases to $79.
+        </div>
+      </div>
+      <div class="bg-white rounded-xl border border-gray-100 overflow-hidden">
+        <button class="faq-btn w-full text-left px-5 py-4 flex justify-between items-center text-sm font-semibold" onclick="this.classList.toggle('open')">
+          Do I need business experience?
+          <span class="faq-icon text-xl text-gray-400 flex-shrink-0 leading-none">+</span>
+        </button>
+        <div class="faq-content px-5 pb-5 text-sm text-gray-500 leading-relaxed">
+          No. Products are clear enough for beginners and practical enough for experienced professionals. If you want to think better about business, this is for you.
+        </div>
+      </div>
+      <div class="bg-white rounded-xl border border-gray-100 overflow-hidden">
+        <button class="faq-btn w-full text-left px-5 py-4 flex justify-between items-center text-sm font-semibold" onclick="this.classList.toggle('open')">
+          What is the refund policy?
+          <span class="faq-icon text-xl text-gray-400 flex-shrink-0 leading-none">+</span>
+        </button>
+        <div class="faq-content px-5 pb-5 text-sm text-gray-500 leading-relaxed">
+          Full 14-day money-back guarantee. No forms, no questions. If you are not satisfied within 14 days of purchase, email us and we will refund you completely.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA — dark -->
+  <section class="dark-section">
+    <div class="max-w-4xl mx-auto px-6 py-20 text-center">
+      <span class="eyebrow eyebrow-amber mb-5">Ready to start?</span>
+      <h2 class="serif text-4xl sm:text-5xl text-white mb-5" style="letter-spacing:-0.02em">
+        Build Better Business<br>Thinking Today
+      </h2>
+      <p class="text-gray-400 mb-3 max-w-lg mx-auto text-base leading-relaxed">
+        Get the FOUNDRY Bundle and start building the frameworks to think more clearly, decide more confidently, lead more effectively, and grow with structure.
+      </p>
+      <p class="text-amber-400 text-sm font-semibold mb-10">⚡ $49 launch price — increases to $79 when the bundle grows</p>
+
+      <a href="#" class="cta-btn-light inline-block px-10 py-5 text-base font-bold mb-6">
+        Get the FOUNDRY Bundle — $49 →
+      </a>
+
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-500">
+        <span>🛡️ 14-day money-back guarantee</span>
+        <span>⚡ Instant download</span>
+        <span>🔒 Secure checkout via Gumroad</span>
+      </div>
+      <p class="text-xs text-gray-600 mt-4">25 products. One practical system. Special launch price.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#0a0f1c;border-top:1px solid #1e293b;">
+    <div class="max-w-4xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+      <div class="flex items-baseline gap-2">
+        <span class="condensed font-bold text-sm tracking-widest uppercase" style="color:#94a3b8;">FOUNDRY</span>
+        <span>Think · Decide · Lead · Grow</span>
+      </div>
+      <div class="flex gap-6">
+        <a href="mailto:hello@foundrybooks.com" class="hover:text-gray-300 transition-colors">Contact</a>
+        <a href="#" class="hover:text-gray-300 transition-colors">Privacy</a>
+        <a href="#" class="hover:text-gray-300 transition-colors">Refund Policy</a>
+      </div>
+      <span>© 2026 FOUNDRY. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const content = this.nextElementSibling;
+        const isOpen = this.classList.contains('open');
+        document.querySelectorAll('.faq-btn').forEach(b => {
+          b.classList.remove('open');
+          b.nextElementSibling.style.display = 'none';
+        });
+        if (!isOpen) {
+          this.classList.add('open');
+          content.style.display = 'block';
+        }
+      });
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
