@@ -132,19 +132,37 @@
       line-height: 1; flex-shrink: 0; width: 60px; text-align: right;
     }
 
-    .from-to-row { display: flex; align-items: stretch; }
-    .from-cell {
-      flex: 1; padding: 14px 18px; background: #f0f0ec;
-      border: 1px solid #e0e0dc; border-right: none;
-      border-radius: 10px 0 0 10px; font-size: 14px; color: #777;
+    .transform-card {
+      display: grid;
+      grid-template-columns: 1fr 28px 1fr;
+      align-items: center;
+      gap: 0;
+      background: #1a2236;
+      border: 1px solid #253044;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .before-cell {
+      padding: 16px 14px;
+      font-size: 13px;
+      color: #64748b;
+      text-align: right;
+      line-height: 1.4;
+      text-decoration: line-through;
+      text-decoration-color: #334155;
     }
     .arrow-cell {
-      padding: 14px 11px; background: #444; color: white;
-      font-size: 13px; flex-shrink: 0; display: flex; align-items: center;
+      display: flex; align-items: center; justify-content: center;
+      color: #f59e0b; font-size: 16px; font-weight: 700;
+      background: #111d2e;
+      align-self: stretch;
     }
-    .to-cell {
-      flex: 1; padding: 14px 18px; background: #111; color: #ddd;
-      border-radius: 0 10px 10px 0; font-size: 14px; font-weight: 500;
+    .after-cell {
+      padding: 16px 14px;
+      font-size: 13px;
+      color: #e2e8f0;
+      font-weight: 600;
+      line-height: 1.4;
     }
 
     .price-hero {
@@ -234,10 +252,6 @@
 
     @media (max-width: 640px) {
       .comparison-row { grid-template-columns: 1fr; }
-      .from-to-row { flex-direction: column; }
-      .from-cell { border-radius: 10px 10px 0 0; border-right: 1px solid #e0e0dc; border-bottom: none; }
-      .to-cell { border-radius: 0 0 10px 10px; }
-      .arrow-cell { display: none; }
       .diff-num { font-size: 38px; width: 44px; }
     }
 
@@ -569,35 +583,35 @@
       <p class="text-gray-400 mb-10 max-w-lg text-base">You are buying a system to upgrade how you think about business. FOUNDRY helps you move from:</p>
 
       <div class="space-y-2">
-        <div class="from-to-row">
-          <div class="from-cell">Random business content</div>
+        <div class="transform-card">
+          <div class="before-cell">Random business content</div>
           <div class="arrow-cell">→</div>
-          <div class="to-cell">Structured business understanding</div>
+          <div class="after-cell">Structured business understanding</div>
         </div>
-        <div class="from-to-row">
-          <div class="from-cell">Passive reading</div>
+        <div class="transform-card">
+          <div class="before-cell">Passive reading</div>
           <div class="arrow-cell">→</div>
-          <div class="to-cell">Practical application</div>
+          <div class="after-cell">Practical application</div>
         </div>
-        <div class="from-to-row">
-          <div class="from-cell">Confusing concepts</div>
+        <div class="transform-card">
+          <div class="before-cell">Confusing concepts</div>
           <div class="arrow-cell">→</div>
-          <div class="to-cell">Clear, usable frameworks</div>
+          <div class="after-cell">Clear, usable frameworks</div>
         </div>
-        <div class="from-to-row">
-          <div class="from-cell">Scattered ideas</div>
+        <div class="transform-card">
+          <div class="before-cell">Scattered ideas</div>
           <div class="arrow-cell">→</div>
-          <div class="to-cell">Better decisions</div>
+          <div class="after-cell">Better decisions</div>
         </div>
-        <div class="from-to-row">
-          <div class="from-cell">Learning without direction</div>
+        <div class="transform-card">
+          <div class="before-cell">Learning without direction</div>
           <div class="arrow-cell">→</div>
-          <div class="to-cell">Learning with structure and purpose</div>
+          <div class="after-cell">Learning with structure and purpose</div>
         </div>
-        <div class="from-to-row">
-          <div class="from-cell">Knowing theory</div>
+        <div class="transform-card">
+          <div class="before-cell">Knowing theory</div>
           <div class="arrow-cell">→</div>
-          <div class="to-cell">Applying business logic</div>
+          <div class="after-cell">Applying business logic</div>
         </div>
       </div>
 
