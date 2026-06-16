@@ -100,14 +100,17 @@
 
     .outcome-card {
       background: white; border: 1px solid #efefeb;
-      border-radius: 12px; padding: 18px 20px;
-      display: flex; gap: 14px; align-items: flex-start;
+      border-radius: 14px; padding: 16px;
+      display: flex; flex-direction: column; gap: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
     }
     .outcome-icon {
-      width: 34px; height: 34px; border-radius: 8px;
-      background: #f5f5f2; display: flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px; border-radius: 10px;
+      background: #FEF3C7; display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
+    .outcome-desc { display: none; }
+    @media (min-width: 640px) { .outcome-desc { display: block; } }
 
     .track-card {
       background: #1a2236; border: 1px solid #253044;
@@ -403,69 +406,55 @@
     <h2 class="serif text-3xl sm:text-4xl mb-3" style="max-width:460px">What You'll Be Able To Do</h2>
     <p class="text-gray-500 mb-10 max-w-lg text-base">With the FOUNDRY Bundle, you'll build real capability across every area of business:</p>
 
-    <div class="grid sm:grid-cols-2 gap-4">
+    <div class="grid grid-cols-2 sm:grid-cols-2 gap-3">
       <div class="outcome-card">
         <div class="outcome-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
         </div>
-        <div>
-          <p class="text-sm font-semibold mb-1">Think strategically</p>
-          <p class="text-xs text-gray-500 leading-relaxed">About markets, competition, business models, and long-term direction.</p>
-        </div>
+        <p class="text-sm font-bold text-gray-900 leading-snug">Think strategically</p>
+        <p class="outcome-desc text-xs text-gray-500 leading-relaxed">About markets, competition, business models, and long-term direction.</p>
       </div>
       <div class="outcome-card">
         <div class="outcome-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="m18 14-6-6-6 6"/><path d="M6 20h12"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="m18 14-6-6-6 6"/><path d="M6 20h12"/></svg>
         </div>
-        <div>
-          <p class="text-sm font-semibold mb-1">Make better decisions</p>
-          <p class="text-xs text-gray-500 leading-relaxed">Using clear frameworks, trade-off thinking, and practical business logic.</p>
-        </div>
+        <p class="text-sm font-bold text-gray-900 leading-snug">Make better decisions</p>
+        <p class="outcome-desc text-xs text-gray-500 leading-relaxed">Using clear frameworks, trade-off thinking, and practical business logic.</p>
       </div>
       <div class="outcome-card">
         <div class="outcome-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
-        <div>
-          <p class="text-sm font-semibold mb-1">Lead more effectively</p>
-          <p class="text-xs text-gray-500 leading-relaxed">By improving communication, team alignment, and execution.</p>
-        </div>
+        <p class="text-sm font-bold text-gray-900 leading-snug">Lead more effectively</p>
+        <p class="outcome-desc text-xs text-gray-500 leading-relaxed">By improving communication, team alignment, and execution.</p>
       </div>
       <div class="outcome-card">
         <div class="outcome-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
         </div>
-        <div>
-          <p class="text-sm font-semibold mb-1">Understand business finance</p>
-          <p class="text-xs text-gray-500 leading-relaxed">Manage costs, cash flow, and resources with confidence.</p>
-        </div>
+        <p class="text-sm font-bold text-gray-900 leading-snug">Understand business finance</p>
+        <p class="outcome-desc text-xs text-gray-500 leading-relaxed">Manage costs, cash flow, and resources with confidence.</p>
       </div>
       <div class="outcome-card">
         <div class="outcome-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
         </div>
-        <div>
-          <p class="text-sm font-semibold mb-1">Build marketing &amp; sales logic</p>
-          <p class="text-xs text-gray-500 leading-relaxed">Understand customers, positioning, and value creation.</p>
-        </div>
+        <p class="text-sm font-bold text-gray-900 leading-snug">Build marketing &amp; sales logic</p>
+        <p class="outcome-desc text-xs text-gray-500 leading-relaxed">Understand customers, positioning, and value creation.</p>
       </div>
       <div class="outcome-card">
         <div class="outcome-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         </div>
-        <div>
-          <p class="text-sm font-semibold mb-1">Improve operations &amp; productivity</p>
-          <p class="text-xs text-gray-500 leading-relaxed">Through better systems, workflows, and execution discipline.</p>
-        </div>
+        <p class="text-sm font-bold text-gray-900 leading-snug">Improve operations &amp; productivity</p>
+        <p class="outcome-desc text-xs text-gray-500 leading-relaxed">Through better systems, workflows, and execution discipline.</p>
       </div>
       <div class="outcome-card">
         <div class="outcome-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
         </div>
-        <div>
-          <p class="text-sm font-semibold mb-1">Apply AI &amp; digital transformation</p>
-          <p class="text-xs text-gray-500 leading-relaxed">To real business challenges and decision-making.</p>
-        </div>
+        <p class="text-sm font-bold text-gray-900 leading-snug">Apply AI &amp; digital transformation</p>
+        <p class="outcome-desc text-xs text-gray-500 leading-relaxed">To real business challenges and decision-making.</p>
       </div>
       <div class="outcome-card">
         <div class="outcome-icon">
