@@ -134,35 +134,36 @@
 
     .transform-card {
       display: grid;
-      grid-template-columns: 1fr 28px 1fr;
-      align-items: center;
-      gap: 0;
-      background: #1a2236;
-      border: 1px solid #253044;
-      border-radius: 14px;
+      grid-template-columns: 1fr 32px 1fr;
+      align-items: stretch;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
       overflow: hidden;
     }
     .before-cell {
-      padding: 16px 14px;
+      padding: 16px 10px 16px 16px;
       font-size: 13px;
-      color: #64748b;
+      color: #94a3b8;
       text-align: right;
-      line-height: 1.4;
-      text-decoration: line-through;
-      text-decoration-color: #334155;
+      line-height: 1.5;
+      display: flex; align-items: center; justify-content: flex-end;
     }
     .arrow-cell {
       display: flex; align-items: center; justify-content: center;
-      color: #f59e0b; font-size: 16px; font-weight: 700;
-      background: #111d2e;
-      align-self: stretch;
+      color: #f59e0b; font-size: 15px; font-weight: 800;
+      background: #0f172a;
+      border-left: 1px solid #334155;
+      border-right: 1px solid #334155;
+      flex-shrink: 0;
     }
     .after-cell {
-      padding: 16px 14px;
-      font-size: 13px;
-      color: #e2e8f0;
-      font-weight: 600;
-      line-height: 1.4;
+      padding: 16px 16px 16px 10px;
+      font-size: 14px;
+      color: #f1f5f9;
+      font-weight: 700;
+      line-height: 1.5;
+      display: flex; align-items: center;
     }
 
     .price-hero {
