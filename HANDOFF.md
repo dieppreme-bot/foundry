@@ -26,7 +26,8 @@ Thương hiệu **thư viện học liệu kinh doanh** bán cho thị trường
 | **v3** (MBA-anchored) | https://foundry-jade.vercel.app/v3 | Thêm Big Idea / Value Stack |
 | **v4** | https://foundry-jade.vercel.app/v4 | Iteration trung gian |
 | **v5** | https://foundry-jade.vercel.app/v5 | Hero 2 cột, dark sections |
-| **v6** ⭐ | https://foundry-jade.vercel.app/v6 | **PHIÊN BẢN MỚI NHẤT** — visual-first hero |
+| **v6** | https://foundry-jade.vercel.app/v6 | Visual-first hero, 25 sách cũ |
+| **v7** ⭐ | https://foundry-jade.vercel.app/v7 | **PHIÊN BẢN MỚI NHẤT** — 27 sách mới, Library grid |
 
 **Domain riêng đã add vào Vercel:** `foundbundler.store` / `www.foundbundler.store`
 (DNS chưa trỏ hoàn toàn — kiểm tra Vercel → Project → Domains)
@@ -57,23 +58,51 @@ foundry/
 ├── v3/index.html       ← v3, LIVE tại /v3
 ├── v4/index.html       ← v4, LIVE tại /v4
 ├── v5/index.html       ← v5, LIVE tại /v5
-├── v6/index.html       ← v6 ⭐ LIVE tại /v6 (mới nhất)
+├── v6/index.html       ← v6, LIVE tại /v6 (25 sách cũ)
+├── v7/index.html       ← v7 ⭐ LIVE tại /v7 (MỚI NHẤT — 27 sách)
 ├── covers/             ← tất cả ảnh bìa sách
-│   ├── 10-business-wins.webp
-│   ├── 10-disciplines.webp
-│   ├── agile-manual.webp
-│   ├── ai-decoded.webp
-│   ├── business-model-mastery.webp
-│   ├── common-business-mistakes.webp
-│   ├── mastering-corporate-finance.webp
-│   ├── sach-xep-hinh.webp     ← composite fan image (dùng ở v5)
-│   └── v2x.webp               ← 3D book mockup (dùng ở v6 pricing section)
+│   ├── press-01-profit-levers.png ... press-27-shockproof-finance.png  (27 bìa mới)
+│   ├── web-mockup-1.png ... web-mockup-4.png  (ảnh chèn web)
+│   ├── v2x.webp, sach-xep-hinh.webp  (mockup cũ v5/v6)
+│   └── *.webp  (7 bìa cũ dùng ở v2–v6)
 ├── vercel.json         ← security headers
 ├── HANDOFF.md          ← FILE NÀY
 └── docs/
     ├── canva-cover-guide.md
     └── teardown-business-explained.txt
 ```
+
+### Danh sách 27 sách v7 theo track
+
+| # | Tên sách | Track |
+|---|----------|-------|
+| 01 | Profit Levers | Strategy |
+| 02 | Focus Lock | Operations |
+| 03 | Momentum Stack | Operations |
+| 04 | Signal Mirror | Operations |
+| 05 | Sprint Engine | Operations |
+| 06 | Algorithms to Advantage | Strategy |
+| 07 | The Intelligent Enterprise Engine | Strategy |
+| 08 | Brand Gravity | Marketing |
+| 09 | Growth Engine Architecture | Strategy |
+| 10 | Profit Logic | Strategy |
+| 11 | The Revenue Shape System | Finance |
+| 12 | Failure-Proof Operator | Finance |
+| 13 | The Advantage Map | Strategy |
+| 14 | The Advisory Method | Innovation |
+| 15 | The Consultant's Operating System | Innovation |
+| 16 | The Content Engine Room | Marketing |
+| 17 | Audience Magnet Lab | Marketing |
+| 18 | Pathways to Purchase | Marketing |
+| 19 | From Click to Commitment | Marketing |
+| 20 | The Relationship Revenue System | Marketing |
+| 21 | The Everyday Security System | Innovation |
+| 22 | From Resistance to Rollout | Leadership |
+| 23 | The Online Store Operating System | Innovation |
+| 24 | The Workplace Energy System | Leadership |
+| 25 | Stay Power | Leadership |
+| 26 | The Talent Continuity System | Leadership |
+| 27 | Shockproof Finance | Finance |
 
 Mọi landing page là **1 file HTML tự chứa** (Tailwind CDN + Google Fonts) — không cần build/npm.
 
@@ -104,7 +133,7 @@ git push
 
 ---
 
-## 6. Design system của v6
+## 6. Design system của v7
 
 | Yếu tố | Giá trị |
 |--------|---------|
@@ -116,10 +145,13 @@ git push
 | Màu amber/CTA | `#D97706` |
 | CSS framework | Tailwind CDN |
 
-**Cấu trúc sections v6:**
-Nav → Hero (fan 7 bìa + CTA) → Proof Bar → Problem → Outcomes (2-col grid) →
-6 Tracks (dark) → Why FOUNDRY → Transformation (dark, cards ngang) →
-Who It's For → Pricing (3-col compare + price-hero box) → Future Updates → FAQ → Final CTA (dark) → Footer
+**Cấu trúc sections v7:**
+Nav → Hero (fan 7 bìa mới + CTA) → Proof Bar (27 products, 88%) → Problem →
+Outcomes (2-col grid) → 6 Tracks (dark, "Browse All 27" CTA) →
+**The Library** (27-book grid với filter tabs theo track) →
+Why FOUNDRY (2-col: text + web-mockup-2) → Transformation (dark) →
+Who It's For → Pricing (web-mockup-1 + 3-col compare $405→$49 + price-hero) →
+Future Updates → FAQ → Final CTA (dark) → Footer
 
 ---
 
